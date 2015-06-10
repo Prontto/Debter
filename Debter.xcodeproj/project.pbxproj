@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		075702351B28CF09001F913D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075702341B28CF09001F913D /* AppDelegate.swift */; };
+		075702371B28CF09001F913D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075702361B28CF09001F913D /* ViewController.swift */; };
+		0757023A1B28CF09001F913D /* Debter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 075702381B28CF09001F913D /* Debter.xcdatamodeld */; };
+		0757023C1B28CF09001F913D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0757023B1B28CF09001F913D /* Assets.xcassets */; };
+		0757023F1B28CF09001F913D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0757023D1B28CF09001F913D /* Main.storyboard */; };
+		0757024A1B28CF09001F913D /* DebterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075702491B28CF09001F913D /* DebterTests.swift */; };
+		075702551B28CF0A001F913D /* DebterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075702541B28CF0A001F913D /* DebterUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		075702461B28CF09001F913D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 075702291B28CF09001F913D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 075702301B28CF09001F913D;
+			remoteInfo = Debter;
+		};
+		075702511B28CF0A001F913D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 075702291B28CF09001F913D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 075702301B28CF09001F913D;
+			remoteInfo = Debter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		075702311B28CF09001F913D /* Debter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Debter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		075702341B28CF09001F913D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		075702361B28CF09001F913D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		075702391B28CF09001F913D /* Debter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Debter.xcdatamodel; sourceTree = "<group>"; };
+		0757023B1B28CF09001F913D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0757023E1B28CF09001F913D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		075702401B28CF09001F913D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		075702451B28CF09001F913D /* DebterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DebterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		075702491B28CF09001F913D /* DebterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebterTests.swift; sourceTree = "<group>"; };
+		0757024B1B28CF09001F913D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		075702501B28CF0A001F913D /* DebterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DebterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		075702541B28CF0A001F913D /* DebterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebterUITests.swift; sourceTree = "<group>"; };
+		075702561B28CF0A001F913D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0757022E1B28CF09001F913D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		075702421B28CF09001F913D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0757024D1B28CF0A001F913D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		075702281B28CF09001F913D = {
+			isa = PBXGroup;
+			children = (
+				075702331B28CF09001F913D /* Debter */,
+				075702481B28CF09001F913D /* DebterTests */,
+				075702531B28CF0A001F913D /* DebterUITests */,
+				075702321B28CF09001F913D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		075702321B28CF09001F913D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				075702311B28CF09001F913D /* Debter.app */,
+				075702451B28CF09001F913D /* DebterTests.xctest */,
+				075702501B28CF0A001F913D /* DebterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		075702331B28CF09001F913D /* Debter */ = {
+			isa = PBXGroup;
+			children = (
+				075702341B28CF09001F913D /* AppDelegate.swift */,
+				075702361B28CF09001F913D /* ViewController.swift */,
+				0757023B1B28CF09001F913D /* Assets.xcassets */,
+				0757023D1B28CF09001F913D /* Main.storyboard */,
+				075702401B28CF09001F913D /* Info.plist */,
+				075702381B28CF09001F913D /* Debter.xcdatamodeld */,
+			);
+			path = Debter;
+			sourceTree = "<group>";
+		};
+		075702481B28CF09001F913D /* DebterTests */ = {
+			isa = PBXGroup;
+			children = (
+				075702491B28CF09001F913D /* DebterTests.swift */,
+				0757024B1B28CF09001F913D /* Info.plist */,
+			);
+			path = DebterTests;
+			sourceTree = "<group>";
+		};
+		075702531B28CF0A001F913D /* DebterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				075702541B28CF0A001F913D /* DebterUITests.swift */,
+				075702561B28CF0A001F913D /* Info.plist */,
+			);
+			path = DebterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		075702301B28CF09001F913D /* Debter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 075702591B28CF0A001F913D /* Build configuration list for PBXNativeTarget "Debter" */;
+			buildPhases = (
+				0757022D1B28CF09001F913D /* Sources */,
+				0757022E1B28CF09001F913D /* Frameworks */,
+				0757022F1B28CF09001F913D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Debter;
+			productName = Debter;
+			productReference = 075702311B28CF09001F913D /* Debter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		075702441B28CF09001F913D /* DebterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0757025C1B28CF0A001F913D /* Build configuration list for PBXNativeTarget "DebterTests" */;
+			buildPhases = (
+				075702411B28CF09001F913D /* Sources */,
+				075702421B28CF09001F913D /* Frameworks */,
+				075702431B28CF09001F913D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				075702471B28CF09001F913D /* PBXTargetDependency */,
+			);
+			name = DebterTests;
+			productName = DebterTests;
+			productReference = 075702451B28CF09001F913D /* DebterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0757024F1B28CF0A001F913D /* DebterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0757025F1B28CF0A001F913D /* Build configuration list for PBXNativeTarget "DebterUITests" */;
+			buildPhases = (
+				0757024C1B28CF0A001F913D /* Sources */,
+				0757024D1B28CF0A001F913D /* Frameworks */,
+				0757024E1B28CF0A001F913D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				075702521B28CF0A001F913D /* PBXTargetDependency */,
+			);
+			name = DebterUITests;
+			productName = DebterUITests;
+			productReference = 075702501B28CF0A001F913D /* DebterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		075702291B28CF09001F913D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Samu Tuominen";
+				TargetAttributes = {
+					075702301B28CF09001F913D = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					075702441B28CF09001F913D = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 075702301B28CF09001F913D;
+					};
+					0757024F1B28CF0A001F913D = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 075702301B28CF09001F913D;
+					};
+				};
+			};
+			buildConfigurationList = 0757022C1B28CF09001F913D /* Build configuration list for PBXProject "Debter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 075702281B28CF09001F913D;
+			productRefGroup = 075702321B28CF09001F913D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				075702301B28CF09001F913D /* Debter */,
+				075702441B28CF09001F913D /* DebterTests */,
+				0757024F1B28CF0A001F913D /* DebterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0757022F1B28CF09001F913D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0757023C1B28CF09001F913D /* Assets.xcassets in Resources */,
+				0757023F1B28CF09001F913D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		075702431B28CF09001F913D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0757024E1B28CF0A001F913D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0757022D1B28CF09001F913D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				075702371B28CF09001F913D /* ViewController.swift in Sources */,
+				075702351B28CF09001F913D /* AppDelegate.swift in Sources */,
+				0757023A1B28CF09001F913D /* Debter.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		075702411B28CF09001F913D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0757024A1B28CF09001F913D /* DebterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0757024C1B28CF0A001F913D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				075702551B28CF0A001F913D /* DebterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		075702471B28CF09001F913D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 075702301B28CF09001F913D /* Debter */;
+			targetProxy = 075702461B28CF09001F913D /* PBXContainerItemProxy */;
+		};
+		075702521B28CF0A001F913D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 075702301B28CF09001F913D /* Debter */;
+			targetProxy = 075702511B28CF0A001F913D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0757023D1B28CF09001F913D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0757023E1B28CF09001F913D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		075702571B28CF0A001F913D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		075702581B28CF0A001F913D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0757025A1B28CF0A001F913D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Debter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samutuominen.Debter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0757025B1B28CF0A001F913D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Debter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samutuominen.Debter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0757025D1B28CF0A001F913D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DebterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samutuominen.DebterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Debter.app/Contents/MacOS/Debter";
+			};
+			name = Debug;
+		};
+		0757025E1B28CF0A001F913D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DebterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samutuominen.DebterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Debter.app/Contents/MacOS/Debter";
+			};
+			name = Release;
+		};
+		075702601B28CF0A001F913D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DebterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samutuominen.DebterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Debter;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		075702611B28CF0A001F913D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DebterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samutuominen.DebterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Debter;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0757022C1B28CF09001F913D /* Build configuration list for PBXProject "Debter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				075702571B28CF0A001F913D /* Debug */,
+				075702581B28CF0A001F913D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		075702591B28CF0A001F913D /* Build configuration list for PBXNativeTarget "Debter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0757025A1B28CF0A001F913D /* Debug */,
+				0757025B1B28CF0A001F913D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0757025C1B28CF0A001F913D /* Build configuration list for PBXNativeTarget "DebterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0757025D1B28CF0A001F913D /* Debug */,
+				0757025E1B28CF0A001F913D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0757025F1B28CF0A001F913D /* Build configuration list for PBXNativeTarget "DebterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				075702601B28CF0A001F913D /* Debug */,
+				075702611B28CF0A001F913D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		075702381B28CF09001F913D /* Debter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				075702391B28CF09001F913D /* Debter.xcdatamodel */,
+			);
+			currentVersion = 075702391B28CF09001F913D /* Debter.xcdatamodel */;
+			path = Debter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 075702291B28CF09001F913D /* Project object */;
+}
