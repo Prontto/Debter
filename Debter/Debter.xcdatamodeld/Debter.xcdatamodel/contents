@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8118.17" systemVersion="14D136" minimumToolsVersion="Automatic">
+    <entity name="Saatava" syncable="YES">
+        <attribute name="kuvaus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pvm" attributeType="Date" syncable="YES"/>
+        <attribute name="summa" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="velallinen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Velallinen" inverseName="saatavat" inverseEntity="Velallinen" syncable="YES"/>
+    </entity>
+    <entity name="Velallinen" syncable="YES">
+        <attribute name="nimi" attributeType="String" syncable="YES"/>
+        <relationship name="saatavat" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Saatava" inverseName="velallinen" inverseEntity="Saatava" syncable="YES"/>
+    </entity>
     <entity name="Velka" representedClassName="Velka" syncable="YES">
         <attribute name="kuvaus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pvm" attributeType="Date" syncable="YES"/>
@@ -13,5 +23,7 @@
     <elements>
         <element name="Velka" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Velkoja" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="Saatava" positionX="-54" positionY="27" width="128" height="105"/>
+        <element name="Velallinen" positionX="-45" positionY="36" width="128" height="75"/>
     </elements>
 </model>

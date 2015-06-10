@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class VelkaViewController: NSViewController {
 
     private enum KolumninTunniste: String {
         case Pvm = "pvm"
@@ -20,11 +20,11 @@ class ViewController: NSViewController {
     private var velat = [Velka]()
     private var velkojat = [Velkoja]()
     
-    lazy var moc: NSManagedObjectContext = {
+    /*lazy var moc: NSManagedObjectContext = {
         let appi = NSApplication.sharedApplication().delegate as! AppDelegate
         let moc = appi.managedObjectContext
         return moc
-    }()
+    }()*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class ViewController: NSViewController {
         testi.kuvaus = "Sätkäpurut"
         testi.velkoja = mina*/
         
-        updateTableView()
+        //updateTableView()
         
         
     }
@@ -49,16 +49,16 @@ class ViewController: NSViewController {
         }
     }
 
-    func updateTableView() {
+    /*func updateTableView() {
         let velkaTulokset = Helper.fetchEntities("Velka", predicate: nil, moc: moc)
         let velkojaTulokset = Helper.fetchEntities("Velkoja", predicate: nil, moc: moc)
         velat = velkaTulokset as! [Velka]
         velkojat = velkojaTulokset as! [Velkoja]
-    }
+    }*/
 
 }
 
-extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
+extension VelkaViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return velat.count
