@@ -1,5 +1,5 @@
 //
-//  Velallinen+CoreDataProperties.swift
+//  Creditor+CoreDataProperties.swift
 //  Debter
 //
 //  Created by Samu Tuominen on 11.6.2015.
@@ -12,9 +12,9 @@
 import Foundation
 import CoreData
 
-extension Velallinen {
+extension Creditor {
 
-    @NSManaged var nimi: String
-    @NSManaged var saatavat: NSSet
+    @NSManaged var name: String?
+    @NSManaged var events: NSSet?
 
 }

@@ -1,5 +1,5 @@
 //
-//  Velka.swift
+//  Event.swift
 //  Debter
 //
 //  Created by Samu Tuominen on 11.6.2015.
@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-@objc(Velka)
-class Velka: NSManagedObject {
+@objc(Event)
+class Event: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

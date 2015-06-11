@@ -1,5 +1,5 @@
 //
-//  SaatavaViewController.swift
+//  ReceivablesViewController.swift
 //  Debter
 //
 //  Created by Samu Tuominen on 11.6.2015.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SaatavaViewController: NSViewController {
+class ReceivablesViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

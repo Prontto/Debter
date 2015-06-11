@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         let moc = CoreDataStackManager.sharedManager.managedObjectContext
-        let tulokset = Helper.fetchEntities("Velkoja", predicate: nil, moc: moc)
+        let tulokset = Helper.fetchEntities("Creditor", predicate: nil, moc: moc)
         print("Velkoja löytyi \(tulokset.count) kappaletta")
     }
 

@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8118.17" systemVersion="14D136" minimumToolsVersion="Automatic">
-    <entity name="Saatava" representedClassName=".Saatava" syncable="YES">
-        <attribute name="kuvaus" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pvm" attributeType="Date" syncable="YES"/>
-        <attribute name="summa" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="velallinen" maxCount="1" deletionRule="Nullify" destinationEntity="Velallinen" inverseName="saatavat" inverseEntity="Velallinen" syncable="YES"/>
+    <entity name="Creditor" representedClassName="Creditor" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="creditor" inverseEntity="Event" syncable="YES"/>
     </entity>
-    <entity name="Velallinen" representedClassName=".Velallinen" syncable="YES">
-        <attribute name="nimi" attributeType="String" syncable="YES"/>
-        <relationship name="saatavat" toMany="YES" deletionRule="Nullify" destinationEntity="Saatava" inverseName="velallinen" inverseEntity="Saatava" syncable="YES"/>
+    <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sum" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="creditor" maxCount="1" deletionRule="Nullify" destinationEntity="Creditor" inverseName="events" inverseEntity="Creditor" syncable="YES"/>
+        <relationship name="ower" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ower" inverseName="events" inverseEntity="Ower" syncable="YES"/>
     </entity>
-    <entity name="Velka" representedClassName="Velka" syncable="YES">
-        <attribute name="kuvaus" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pvm" attributeType="Date" syncable="YES"/>
-        <attribute name="summa" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="velkoja" maxCount="1" deletionRule="Nullify" destinationEntity="Velkoja" inverseName="velat" inverseEntity="Velkoja" syncable="YES"/>
-    </entity>
-    <entity name="Velkoja" representedClassName="Velkoja" syncable="YES">
-        <attribute name="nimi" attributeType="String" syncable="YES"/>
-        <relationship name="velat" toMany="YES" deletionRule="Nullify" destinationEntity="Velka" inverseName="velkoja" inverseEntity="Velka" syncable="YES"/>
+    <entity name="Ower" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="ower" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Velka" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Velkoja" positionX="-54" positionY="18" width="128" height="75"/>
-        <element name="Saatava" positionX="-54" positionY="27" width="128" height="105"/>
-        <element name="Velallinen" positionX="-45" positionY="36" width="128" height="75"/>
+        <element name="Creditor" positionX="-110" positionY="171" width="128" height="73"/>
+        <element name="Event" positionX="61" positionY="440" width="128" height="118"/>
+        <element name="Ower" positionX="349" positionY="177" width="128" height="75"/>
     </elements>
 </model>

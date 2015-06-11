@@ -1,5 +1,5 @@
 //
-//  Velkoja+CoreDataProperties.swift
+//  Event+CoreDataProperties.swift
 //  Debter
 //
 //  Created by Samu Tuominen on 11.6.2015.
@@ -12,9 +12,12 @@
 import Foundation
 import CoreData
 
-extension Velkoja {
+extension Event {
 
-    @NSManaged var nimi: String
-    @NSManaged var velat: NSSet
+    @NSManaged var date: NSDate?
+    @NSManaged var desc: String?
+    @NSManaged var sum: NSNumber?
+    @NSManaged var creditor: Creditor?
+    @NSManaged var ower: NSManagedObject?
 
 }

@@ -10,18 +10,13 @@ import Cocoa
 
 class MainWindowController: NSWindowController {
     
-    enum SegueTunniste: String {
-        case LisaaUusi = "lisaaTapahtuma"
-    }
-    
-    @IBOutlet var mySegmentControl: NSSegmentedControl! // Saatavat = 0, Velat = 1
+    @IBOutlet weak var segmentControl: NSSegmentedControl! // receivables = 0, debts = 1
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+
         self.window?.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
-        self.window?.titleVisibility = .Hidden
-        
+        self.window?.title = "Debter"
         
         /*saatavaVC = storyboard?.instantiateControllerWithIdentifier("SaatavaVC") as? SaatavaViewController
         self.contentViewController = saatavaVC*/
@@ -29,13 +24,13 @@ class MainWindowController: NSWindowController {
     
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "lisaaTapahtuma" {
+        if segue.identifier == "addNewEvent" {
             print("Segue oikein")
         }
     }
     
-    @IBAction func segmentVaihtui(sender: AnyObject) {
-        print(mySegmentControl.selectedSegment)
+    @IBAction func selectedSegmentChanged(sender: AnyObject) {
+        print(segmentControl.selectedSegment)
     }
     
 

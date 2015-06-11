@@ -8,24 +8,24 @@
 
 import Cocoa
 
-class HenkiloSolu: NSView {
+class PersonViewCell: NSView {
 
-    @IBOutlet weak var summakentta: NSTextField!
-    @IBOutlet weak var nimikentta: NSTextField!
+    @IBOutlet weak var sumField: NSTextField!
+    @IBOutlet weak var nameField: NSTextField!
     
     var nimi: String {
         get {
-            return nimikentta.stringValue
+            return nameField.stringValue
         } set {
-            nimikentta.stringValue = newValue
+            nameField.stringValue = newValue
         }
     }
     
     var summa: Double {
         get {
-            return summakentta.doubleValue
+            return sumField.doubleValue
         } set {
-            summakentta.doubleValue = newValue
+            sumField.doubleValue = newValue
         }
     }
     

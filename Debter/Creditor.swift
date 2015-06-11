@@ -1,5 +1,5 @@
 //
-//  Velallinen.swift
+//  Creditor.swift
 //  Debter
 //
 //  Created by Samu Tuominen on 11.6.2015.
@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-@objc(Velallinen)
-class Velallinen: NSManagedObject {
+@objc(Creditor)
+class Creditor: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

@@ -1,5 +1,5 @@
 /*
-    Singleton -mallilla tehty Core Datan hoitaja.
+    Singleton-model for Core Data.
 */
 
 import Cocoa
@@ -14,7 +14,6 @@ class CoreDataStackManager {
     }
     
     // MARK: - Core Data stack
-    
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.samutuominen.Debter" in the user's Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
