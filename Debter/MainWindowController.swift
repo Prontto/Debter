@@ -14,11 +14,14 @@ class MainWindowController: NSWindowController {
         case LisaaUusi = "lisaaTapahtuma"
     }
     
+    @IBOutlet var mySegmentControl: NSSegmentedControl! // Saatavat = 0, Velat = 1
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-        //self.window?.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
+        self.window?.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
         self.window?.titleVisibility = .Hidden
+        
         
         /*saatavaVC = storyboard?.instantiateControllerWithIdentifier("SaatavaVC") as? SaatavaViewController
         self.contentViewController = saatavaVC*/
@@ -30,6 +33,11 @@ class MainWindowController: NSWindowController {
             print("Segue oikein")
         }
     }
+    
+    @IBAction func segmentVaihtui(sender: AnyObject) {
+        print(mySegmentControl.selectedSegment)
+    }
+    
 
 }
 

@@ -25,6 +25,10 @@
 		07AD534A1B28F3430028A9FA /* LisaaUusiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD53491B28F3430028A9FA /* LisaaUusiViewController.swift */; };
 		07AD534C1B28F4010028A9FA /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD534B1B28F4010028A9FA /* CoreDataStackManager.swift */; };
 		07AD534E1B28F5D50028A9FA /* HenkiloSolu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD534D1B28F5D50028A9FA /* HenkiloSolu.swift */; };
+		07AD53521B28FAB30028A9FA /* Saatava+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD53501B28FAB30028A9FA /* Saatava+CoreDataProperties.swift */; };
+		07AD53531B28FAB30028A9FA /* Saatava.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD53511B28FAB30028A9FA /* Saatava.swift */; };
+		07AD53561B28FADA0028A9FA /* Velallinen+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD53541B28FADA0028A9FA /* Velallinen+CoreDataProperties.swift */; };
+		07AD53571B28FADA0028A9FA /* Velallinen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD53551B28FADA0028A9FA /* Velallinen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		07AD53491B28F3430028A9FA /* LisaaUusiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LisaaUusiViewController.swift; sourceTree = "<group>"; };
 		07AD534B1B28F4010028A9FA /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		07AD534D1B28F5D50028A9FA /* HenkiloSolu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HenkiloSolu.swift; sourceTree = "<group>"; };
+		07AD53501B28FAB30028A9FA /* Saatava+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Saatava+CoreDataProperties.swift"; path = "../Saatava+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07AD53511B28FAB30028A9FA /* Saatava.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Saatava.swift; path = ../Saatava.swift; sourceTree = "<group>"; };
+		07AD53541B28FADA0028A9FA /* Velallinen+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Velallinen+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07AD53551B28FADA0028A9FA /* Velallinen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Velallinen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,19 +127,14 @@
 		075702331B28CF09001F913D /* Debter */ = {
 			isa = PBXGroup;
 			children = (
-				0757026C1B28DE08001F913D /* Velka+CoreDataProperties.swift */,
-				0757026D1B28DE08001F913D /* Velka.swift */,
-				075702681B28DDDD001F913D /* Velkoja+CoreDataProperties.swift */,
-				075702691B28DDDD001F913D /* Velkoja.swift */,
-				07AD534B1B28F4010028A9FA /* CoreDataStackManager.swift */,
 				075702341B28CF09001F913D /* AppDelegate.swift */,
+				07AD53591B28FB4E0028A9FA /* WindowControllers */,
 				07AD534F1B28F7090028A9FA /* ViewControllers */,
-				075702621B28CF19001F913D /* Helper.swift */,
+				07AD53581B28FAF40028A9FA /* Model */,
+				07AD535A1B28FB690028A9FA /* Views */,
 				0757023B1B28CF09001F913D /* Assets.xcassets */,
 				0757023D1B28CF09001F913D /* Main.storyboard */,
-				07AD534D1B28F5D50028A9FA /* HenkiloSolu.swift */,
-				075702761B28E5CE001F913D /* VibrancyTaulukko.swift */,
-				075702701B28DF92001F913D /* MainWindowController.swift */,
+				075702621B28CF19001F913D /* Helper.swift */,
 				075702401B28CF09001F913D /* Info.plist */,
 				075702381B28CF09001F913D /* Debter.xcdatamodeld */,
 			);
@@ -164,6 +167,39 @@
 				07AD53491B28F3430028A9FA /* LisaaUusiViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		07AD53581B28FAF40028A9FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				07AD53541B28FADA0028A9FA /* Velallinen+CoreDataProperties.swift */,
+				07AD53551B28FADA0028A9FA /* Velallinen.swift */,
+				07AD53501B28FAB30028A9FA /* Saatava+CoreDataProperties.swift */,
+				07AD53511B28FAB30028A9FA /* Saatava.swift */,
+				0757026C1B28DE08001F913D /* Velka+CoreDataProperties.swift */,
+				0757026D1B28DE08001F913D /* Velka.swift */,
+				075702681B28DDDD001F913D /* Velkoja+CoreDataProperties.swift */,
+				075702691B28DDDD001F913D /* Velkoja.swift */,
+				07AD534B1B28F4010028A9FA /* CoreDataStackManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		07AD53591B28FB4E0028A9FA /* WindowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				075702701B28DF92001F913D /* MainWindowController.swift */,
+			);
+			name = WindowControllers;
+			sourceTree = "<group>";
+		};
+		07AD535A1B28FB690028A9FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07AD534D1B28F5D50028A9FA /* HenkiloSolu.swift */,
+				075702761B28E5CE001F913D /* VibrancyTaulukko.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,10 +340,14 @@
 				0757023A1B28CF09001F913D /* Debter.xcdatamodeld in Sources */,
 				0757026E1B28DE08001F913D /* Velka+CoreDataProperties.swift in Sources */,
 				0757026A1B28DDDD001F913D /* Velkoja+CoreDataProperties.swift in Sources */,
+				07AD53531B28FAB30028A9FA /* Saatava.swift in Sources */,
 				0757026B1B28DDDD001F913D /* Velkoja.swift in Sources */,
+				07AD53571B28FADA0028A9FA /* Velallinen.swift in Sources */,
 				07AD534C1B28F4010028A9FA /* CoreDataStackManager.swift in Sources */,
 				075702631B28CF1A001F913D /* Helper.swift in Sources */,
 				075702751B28E324001F913D /* SaatavaViewController.swift in Sources */,
+				07AD53521B28FAB30028A9FA /* Saatava+CoreDataProperties.swift in Sources */,
+				07AD53561B28FADA0028A9FA /* Velallinen+CoreDataProperties.swift in Sources */,
 				075702711B28DF92001F913D /* MainWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -694,6 +694,9 @@
                                                 <segment label="Velat" width="80" selected="YES" tag="1"/>
                                             </segments>
                                         </segmentedCell>
+                                        <connections>
+                                            <action selector="segmentVaihtui:" target="B8D-0N-5wS" id="pza-XU-ZFe"/>
+                                        </connections>
                                     </segmentedControl>
                                 </toolbarItem>
                             </allowedToolbarItems>
@@ -706,6 +709,7 @@
                         </toolbar>
                     </window>
                     <connections>
+                        <outlet property="mySegmentControl" destination="InY-Kx-AGH" id="eGf-5J-b8O"/>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
                     </connections>
                 </windowController>
@@ -936,7 +940,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="683.5"/>
+            <point key="canvasLocation" x="75" y="774.5"/>
         </scene>
         <!--SaatavaVC-->
         <scene sceneID="NFJ-0M-Nlo">
@@ -1183,15 +1187,7 @@
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Nq-Nd-Qt9">
                                 <rect key="frame" x="20" y="125" width="180" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Summa" drawsBackground="YES" id="SXJ-to-BsR">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="vc9-l7-oOV"/>
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADs-8P-HFV">
-                                <rect key="frame" x="20" y="55" width="180" height="60"/>
-                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Kuvaus" drawsBackground="YES" id="wNO-oW-H0g">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" numberStyle="currency" lenient="YES" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="2" maximumFractionDigits="2" id="vc9-l7-oOV"/>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1246,11 +1242,19 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADs-8P-HFV">
+                                <rect key="frame" x="20" y="55" width="180" height="60"/>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Kuvaus" drawsBackground="YES" id="wNO-oW-H0g">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="nwd-8i-eju" id="aq8-dD-QvJ"/>
-                        <outlet property="kuvaField" destination="ADs-8P-HFV" id="FAU-9L-o2u"/>
+                        <outlet property="kuvausField" destination="ADs-8P-HFV" id="74S-6V-552"/>
                         <outlet property="nimiField" destination="Qo9-tU-3vW" id="aV3-nU-5iH"/>
                         <outlet property="saatavaRadio" destination="9xj-pc-I3M" id="nNX-x5-d5J"/>
                         <outlet property="summaField" destination="6Nq-Nd-Qt9" id="Fwr-07-nRx"/>

@@ -90,7 +90,15 @@ extension VelkaViewController: NSTableViewDataSource, NSTableViewDelegate {
                 textField.stringValue = velka.kuvaus
                 
             case .Nimi:
-                textField.stringValue = velkoja.nimi
+                
+                let omaView = tableView.makeViewWithIdentifier("henkilosolu", owner: self) as! HenkiloSolu
+                omaView.summa = velka.summa.doubleValue
+                omaView.nimi = velkoja.nimi
+                
+                omaView.summakentta.doubleValue = 666
+                omaView.nimikentta.stringValue = "Vittu"
+                
+                return omaView
             }
             
             palautusView = solu
