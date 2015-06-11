@@ -63,7 +63,8 @@ class AddNewViewController: NSViewController {
             newDebt.date = datePicker.dateValue
             newDebt.desc = descField.stringValue
             newDebt.creditor = person
-            
+            person.sumOfEvents = newDebt.sum.doubleValue
+        
             return
         }
         
@@ -72,6 +73,9 @@ class AddNewViewController: NSViewController {
         newDebt.date = datePicker.dateValue
         newDebt.desc = descField.stringValue
         newDebt.creditor = fetchResults[0]
+        
+        let total = Double(fetchResults[0].sumOfEvents) + sumField.doubleValue
+        newDebt.creditor?.sumOfEvents = total
     }
     /*
     /// Add new receivable and if someone with same name exists, this new debt will be inserted to his receivables.

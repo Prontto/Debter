@@ -734,7 +734,7 @@
                                             <rect key="frame" x="1" y="17" width="404" height="297"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="25" headerView="iFi-yS-A9S" viewBased="YES" id="9Nj-pW-F9G" customClass="VibrancyTable" customModule="Debter" customModuleProvider="target">
+                                                <tableView identifier="debtTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" rowHeight="25" headerView="iFi-yS-A9S" viewBased="YES" id="9Nj-pW-F9G" customClass="VibrancyTable" customModule="Debter" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="404" height="297"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -1034,6 +1034,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="removeCreditor:" target="XfG-lQ-9wD" id="WUL-11-HIj"/>
+                                        </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kte-hW-xTe">
                                         <rect key="frame" x="442" y="374" width="41" height="17"/>
@@ -1052,6 +1055,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="removeDebt:" target="XfG-lQ-9wD" id="hzv-7q-w3O"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1082,7 +1088,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="creditorController" destination="unO-AG-2sf" id="dgW-5Z-CTh"/>
                         <outlet property="creditorTable" destination="Jvt-1Q-Q0c" id="Cf2-jC-TWb"/>
+                        <outlet property="debtController" destination="p3t-qc-wtJ" id="RgK-nX-pVO"/>
+                        <outlet property="debtTable" destination="9Nj-pW-F9G" id="iSH-j0-wme"/>
+                        <outlet property="removeCreditorButton" destination="mHT-C4-Ecx" id="cTn-Bk-Y8l"/>
+                        <outlet property="removeDebtButton" destination="rCs-zf-fzT" id="i8P-LC-gdy"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -12,11 +12,13 @@ class MainWindowController: NSWindowController {
     
     @IBOutlet weak var segmentControl: NSSegmentedControl! // receivables = 0, debts = 1
     
+    var totalDebts = 0.0
+    var totalReceivables = 0.0
+    
     override func windowDidLoad() {
         super.windowDidLoad()
 
         self.window?.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
-        self.window?.title = "Debter"
         
         /*saatavaVC = storyboard?.instantiateControllerWithIdentifier("SaatavaVC") as? SaatavaViewController
         self.contentViewController = saatavaVC*/
@@ -24,15 +26,17 @@ class MainWindowController: NSWindowController {
     
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "addNewEvent" {
-            print("Segue oikein")
+            let debtVC = contentViewController as! DebtViewController
+            let addNewVC = segue.destinationController as! AddNewViewController
+            addNewVC.delegate = debtVC
         }
     }
-    
+
     @IBAction func selectedSegmentChanged(sender: AnyObject) {
         print(segmentControl.selectedSegment)
     }
     
-
 }
 

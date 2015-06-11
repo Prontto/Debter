@@ -1,5 +1,5 @@
 //
-//  Event+CoreDataProperties.swift
+//  Ower+CoreDataProperties.swift
 //  Debter
 //
 //  Created by Samu Tuominen on 11.6.2015.
@@ -12,12 +12,10 @@
 import Foundation
 import CoreData
 
-extension Event {
+extension Ower {
 
-    @NSManaged var date: NSDate
-    @NSManaged var desc: String?
-    @NSManaged var sum: NSNumber
-    @NSManaged var creditor: Creditor?
-    @NSManaged var ower: Ower?
+    @NSManaged var name: String
+    @NSManaged var sumOfEvents: NSNumber
+    @NSManaged var events: NSSet?
 
 }

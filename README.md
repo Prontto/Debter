@@ -5,7 +5,7 @@
 - velallinen "Ower"
 
 ## TODO
-- Laita taulukot arraycontrollereiden avulla kuntoon
+- Poista buttonit disabled ja enabled niin miten kuuluu
 
 ## Hyödyllistä muistettavaa
 

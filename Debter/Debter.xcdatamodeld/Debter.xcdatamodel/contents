@@ -2,22 +2,24 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8118.17" systemVersion="14D136" minimumToolsVersion="Automatic">
     <entity name="Creditor" representedClassName="Creditor" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="sumOfEvents" transient="YES" attributeType="Double" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="creditor" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="date" attributeType="Date" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sum" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="creditor" maxCount="1" deletionRule="Nullify" destinationEntity="Creditor" inverseName="events" inverseEntity="Creditor" syncable="YES"/>
+        <relationship name="creditor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Creditor" inverseName="events" inverseEntity="Creditor" syncable="YES"/>
         <relationship name="ower" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ower" inverseName="events" inverseEntity="Ower" syncable="YES"/>
     </entity>
-    <entity name="Ower" syncable="YES">
+    <entity name="Ower" representedClassName=".Ower" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="sumOfEvents" transient="YES" attributeType="Double" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="ower" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Creditor" positionX="-110" positionY="171" width="128" height="73"/>
+        <element name="Creditor" positionX="-110" positionY="171" width="128" height="90"/>
         <element name="Event" positionX="61" positionY="440" width="128" height="118"/>
-        <element name="Ower" positionX="349" positionY="177" width="128" height="75"/>
+        <element name="Ower" positionX="349" positionY="177" width="128" height="90"/>
     </elements>
 </model>

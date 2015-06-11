@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		071536A21B29AB7600B5F56C /* Creditor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071536A01B29AB7600B5F56C /* Creditor+CoreDataProperties.swift */; };
-		071536A31B29AB7600B5F56C /* Creditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071536A11B29AB7600B5F56C /* Creditor.swift */; };
 		071536A61B29ABA000B5F56C /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071536A41B29ABA000B5F56C /* Event+CoreDataProperties.swift */; };
 		071536A71B29ABA000B5F56C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071536A51B29ABA000B5F56C /* Event.swift */; };
 		075702351B28CF09001F913D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075702341B28CF09001F913D /* AppDelegate.swift */; };
@@ -26,6 +24,10 @@
 		07AD534A1B28F3430028A9FA /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD53491B28F3430028A9FA /* AddNewViewController.swift */; };
 		07AD534C1B28F4010028A9FA /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD534B1B28F4010028A9FA /* CoreDataStackManager.swift */; };
 		07AD534E1B28F5D50028A9FA /* PersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD534D1B28F5D50028A9FA /* PersonViewCell.swift */; };
+		07CFCC391B2A29FF00AEFCD3 /* Ower+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CFCC371B2A29FF00AEFCD3 /* Ower+CoreDataProperties.swift */; };
+		07CFCC3A1B2A29FF00AEFCD3 /* Ower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CFCC381B2A29FF00AEFCD3 /* Ower.swift */; };
+		07CFCC3D1B2A2ACE00AEFCD3 /* Creditor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CFCC3B1B2A2ACE00AEFCD3 /* Creditor+CoreDataProperties.swift */; };
+		07CFCC3E1B2A2ACE00AEFCD3 /* Creditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CFCC3C1B2A2ACE00AEFCD3 /* Creditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		071536A01B29AB7600B5F56C /* Creditor+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Creditor+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		071536A11B29AB7600B5F56C /* Creditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creditor.swift; sourceTree = "<group>"; };
 		071536A41B29ABA000B5F56C /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		071536A51B29ABA000B5F56C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0735D0FB1B29930700F615F0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -72,6 +72,10 @@
 		07AD53491B28F3430028A9FA /* AddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 		07AD534B1B28F4010028A9FA /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		07AD534D1B28F5D50028A9FA /* PersonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewCell.swift; sourceTree = "<group>"; };
+		07CFCC371B2A29FF00AEFCD3 /* Ower+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ower+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07CFCC381B2A29FF00AEFCD3 /* Ower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ower.swift; sourceTree = "<group>"; };
+		07CFCC3B1B2A2ACE00AEFCD3 /* Creditor+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Creditor+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07CFCC3C1B2A2ACE00AEFCD3 /* Creditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,10 +171,12 @@
 		07AD53581B28FAF40028A9FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				07CFCC3B1B2A2ACE00AEFCD3 /* Creditor+CoreDataProperties.swift */,
+				07CFCC3C1B2A2ACE00AEFCD3 /* Creditor.swift */,
+				07CFCC371B2A29FF00AEFCD3 /* Ower+CoreDataProperties.swift */,
+				07CFCC381B2A29FF00AEFCD3 /* Ower.swift */,
 				071536A41B29ABA000B5F56C /* Event+CoreDataProperties.swift */,
 				071536A51B29ABA000B5F56C /* Event.swift */,
-				071536A01B29AB7600B5F56C /* Creditor+CoreDataProperties.swift */,
-				071536A11B29AB7600B5F56C /* Creditor.swift */,
 				07AD534B1B28F4010028A9FA /* CoreDataStackManager.swift */,
 				075702381B28CF09001F913D /* Debter.xcdatamodeld */,
 			);
@@ -324,21 +330,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07CFCC391B2A29FF00AEFCD3 /* Ower+CoreDataProperties.swift in Sources */,
+				07CFCC3A1B2A29FF00AEFCD3 /* Ower.swift in Sources */,
 				075702371B28CF09001F913D /* DebtViewController.swift in Sources */,
-				071536A31B29AB7600B5F56C /* Creditor.swift in Sources */,
 				07AD534E1B28F5D50028A9FA /* PersonViewCell.swift in Sources */,
 				071536A61B29ABA000B5F56C /* Event+CoreDataProperties.swift in Sources */,
 				075702771B28E5CE001F913D /* VibrancyTable.swift in Sources */,
 				07AD534A1B28F3430028A9FA /* AddNewViewController.swift in Sources */,
 				075702351B28CF09001F913D /* AppDelegate.swift in Sources */,
 				07A501C91B2A01A200A9BE46 /* SelectedRowView.swift in Sources */,
+				07CFCC3D1B2A2ACE00AEFCD3 /* Creditor+CoreDataProperties.swift in Sources */,
 				0757023A1B28CF09001F913D /* Debter.xcdatamodeld in Sources */,
 				071536A71B29ABA000B5F56C /* Event.swift in Sources */,
 				07AD534C1B28F4010028A9FA /* CoreDataStackManager.swift in Sources */,
+				07CFCC3E1B2A2ACE00AEFCD3 /* Creditor.swift in Sources */,
 				075702631B28CF1A001F913D /* Helper.swift in Sources */,
 				075702751B28E324001F913D /* ReceivablesViewController.swift in Sources */,
 				075702711B28DF92001F913D /* MainWindowController.swift in Sources */,
-				071536A21B29AB7600B5F56C /* Creditor+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

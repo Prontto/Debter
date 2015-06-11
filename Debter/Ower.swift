@@ -1,5 +1,5 @@
 //
-//  Creditor.swift
+//  Ower.swift
 //  Debter
 //
 //  Created by Samu Tuominen on 11.6.2015.
@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-@objc(Creditor)
-class Creditor: NSManagedObject {
+@objc(Ower)
+class Ower: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

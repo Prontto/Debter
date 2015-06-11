@@ -8,11 +8,17 @@
 
 import Cocoa
 
-class ReceivablesViewController: NSViewController {
+class ReceivablesViewController: NSViewController, EventAddedDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
     
+    // EventAddedDelegate
+    func newEventAdded(sender: AddNewViewController, isDebt: Bool, isReceivable: Bool) {
+        guard isReceivable == true else {
+            return
+        }
+    }
 }
