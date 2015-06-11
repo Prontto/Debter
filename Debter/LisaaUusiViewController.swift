@@ -30,25 +30,93 @@ class LisaaUusiViewController: NSViewController {
         super.viewDidLoad()
         
         datePicker.dateValue = NSDate()
+        saatavaRadio.state = 1
+        velkaRadio.state = 0
+        
+        print("didload")
     }
     
     private func lisaaVelka() {
         
         // Pakollisille kentille uusi guard -syntaksi
         guard nimiField.stringValue != "" && summaField.stringValue != "" else {
+            print("Ehdot eivät täyttyneet")
             return
         }
         
-        let uusi = Helper.insertManagedObject("Velka", moc: moc) as! Velka
-        uusi.summa = summaField.doubleValue
-        uusi.pvm = datePicker.dateValue
-        uusi.kuvaus = kuvausField.stringValue
-        let person = Helper.insertManagedObject("Velkoja", moc: moc) as! Velkoja
-        person.nimi = nimiField.stringValue
-        uusi.velkoja = person
+        // Jos yllä olevat ehdot täyttyvät, tämä lause suoritetaan viimeisenä.
+        defer {
+            delegate?.tapahtumaLisattiin(self, onVelka: true, onSaatava: false)
+            tyhjennaKentat()
+            dismissViewController(self)
+        }
         
-        delegate?.tapahtumaLisattiin(self, onVelka: true, onSaatava: false)
+        
+        let predi = NSPredicate(format: "nimi == %@", nimiField.stringValue)
+        let fetch =  Helper.fetchEntities("Velkoja", predicate: predi, moc: moc) as! [Velkoja]
+        
+        print("Tuloksia samalla nimellä \(fetch.count) kappaletta")
+        
+        
+        guard fetch.count > 0 else {
+            
+            // Jos fetch ei löydä saman nimistä velkojaa, niin tehdään uusi.
+            let person = Helper.insertManagedObject("Velkoja", moc: moc) as! Velkoja
+            person.nimi = nimiField.stringValue
+            
+            let uusiVelka = Helper.insertManagedObject("Velka", moc: moc) as! Velka
+            uusiVelka.summa = summaField.doubleValue
+            uusiVelka.pvm = datePicker.dateValue
+            uusiVelka.kuvaus = kuvausField.stringValue
+            uusiVelka.velkoja = person
+            return
+        }
+        
+        // Uusi velka, joka lisätään vanhan velkojan velkoihin.
+        let uusiVelka = Helper.insertManagedObject("Velka", moc: moc) as! Velka
+        uusiVelka.summa = summaField.doubleValue
+        uusiVelka.pvm = datePicker.dateValue
+        uusiVelka.kuvaus = kuvausField.stringValue
+        // Fetch sisältää varmasti yhden tuloksen, joka on myös maksimi mitä sen pitäisi sisältääkään.
+        uusiVelka.velkoja = fetch[0]
     }
+    
+    private func lisaaSaatava() {
+        
+        guard nimiField.stringValue != "" && summaField.stringValue != "" else {
+            return
+        }
+        
+        defer {
+            delegate?.tapahtumaLisattiin(self, onVelka: true, onSaatava: false)
+            tyhjennaKentat()
+            dismissViewController(self)
+        }
+        
+        let predi = NSPredicate(format: "nimi == %@", nimiField.stringValue)
+        let fetch =  Helper.fetchEntities("Velallinen", predicate: predi, moc: moc) as! [Velallinen]
+        
+        guard fetch.count > 0 else {
+            
+            let person = Helper.insertManagedObject("Velallinen", moc: moc) as! Velallinen
+            person.nimi = nimiField.stringValue
+            
+            let uusiSaatava = Helper.insertManagedObject("Saatava", moc: moc) as! Saatava
+            uusiSaatava.summa = summaField.doubleValue
+            uusiSaatava.pvm = datePicker.dateValue
+            uusiSaatava.kuvaus = kuvausField.stringValue
+            uusiSaatava.velallinen = person
+            return
+        }
+        let uusiSaatava = Helper.insertManagedObject("Saatava", moc: moc) as! Saatava
+        uusiSaatava.summa = summaField.doubleValue
+        uusiSaatava.pvm = datePicker.dateValue
+        uusiSaatava.kuvaus = kuvausField.stringValue
+        uusiSaatava.velallinen = fetch[0]
+    }
+    
+    
+    
     
     private func tyhjennaKentat() {
         let kentat = [nimiField, summaField, kuvausField]
@@ -88,6 +156,16 @@ class LisaaUusiViewController: NSViewController {
         
         tyhjennaKentat()
         //dismissViewController(self)
+    }
+    
+    @IBAction func saatavaValittu(sender: AnyObject) {
+        saatavaRadio.state = 1
+        velkaRadio.state = 0
+    }
+    
+    @IBAction func velkaValittu(sender: AnyObject) {
+        saatavaRadio.state = 0
+        velkaRadio.state = 1
     }
     
     

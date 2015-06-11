@@ -1234,6 +1234,9 @@ DQ
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="saatavaValittu:" target="mbx-ih-M3D" id="0Ex-Ut-NVg"/>
+                                </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4e-sm-ht3">
                                 <rect key="frame" x="122" y="186" width="55" height="18"/>
@@ -1241,6 +1244,9 @@ DQ
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="velkaValittu:" target="mbx-ih-M3D" id="Dpn-Ww-3PK"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADs-8P-HFV">
                                 <rect key="frame" x="20" y="55" width="180" height="60"/>
