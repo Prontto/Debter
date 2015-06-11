@@ -728,14 +728,14 @@
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="JNl-1S-3uY">
                                 <rect key="frame" x="0.0" y="0.0" width="694" height="411"/>
                                 <subviews>
-                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFQ-BE-mOj">
+                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFQ-BE-mOj">
                                         <rect key="frame" x="268" y="51" width="406" height="315"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="NSI-3P-vh1">
-                                            <rect key="frame" x="1" y="17" width="404" height="297"/>
+                                            <rect key="frame" x="0.0" y="17" width="406" height="298"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView identifier="debtTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" rowHeight="25" headerView="iFi-yS-A9S" viewBased="YES" id="9Nj-pW-F9G" customClass="VibrancyTable" customModule="Debter" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="404" height="297"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="406" height="298"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -829,7 +829,7 @@
                                                                 <binding destination="p3t-qc-wtJ" name="value" keyPath="arrangedObjects.sum" id="CuX-r4-pxA"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="desc" width="230" minWidth="10" maxWidth="3.4028234663852886e+38" id="VJq-yL-zUL">
+                                                        <tableColumn identifier="desc" width="232" minWidth="10" maxWidth="3.4028234663852886e+38" id="VJq-yL-zUL">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Description">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -843,7 +843,7 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="rTJ-tD-4YC">
-                                                                    <rect key="frame" x="172" y="1" width="230" height="25"/>
+                                                                    <rect key="frame" x="172" y="1" width="232" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0w-Hq-uup">
@@ -860,7 +860,7 @@
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="y0w-Hq-uup" firstAttribute="leading" secondItem="rTJ-tD-4YC" secondAttribute="leading" constant="2" id="CgZ-xp-vP6"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="y0w-Hq-uup" secondAttribute="trailing" constant="3" id="I8f-RE-0pd"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="y0w-Hq-uup" secondAttribute="trailing" constant="5" id="I8f-RE-0pd"/>
                                                                         <constraint firstItem="y0w-Hq-uup" firstAttribute="centerY" secondItem="rTJ-tD-4YC" secondAttribute="centerY" id="apm-4Y-Hpq"/>
                                                                     </constraints>
                                                                     <connections>
@@ -889,18 +889,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <tableHeaderView key="headerView" id="iFi-yS-A9S">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="17"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="406" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableHeaderView>
                                     </scrollView>
-                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHj-nq-Ozp">
+                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHj-nq-Ozp">
                                         <rect key="frame" x="20" y="51" width="240" height="315"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="qPD-EO-7ap">
-                                            <rect key="frame" x="1" y="17" width="238" height="297"/>
+                                            <rect key="frame" x="0.0" y="17" width="240" height="298"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView identifier="creditorTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="25" headerView="z7G-N0-Tov" viewBased="YES" id="Jvt-1Q-Q0c" customClass="VibrancyTable" customModule="Debter" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="238" height="297"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="298"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -949,7 +949,7 @@
                                                                 <binding destination="unO-AG-2sf" name="value" keyPath="arrangedObjects.name" id="whq-ap-yIE"/>
                                                             </connections>
                                                         </tableColumn>
-                                                        <tableColumn identifier="total" width="116" minWidth="40" maxWidth="1000" id="733-DO-eG8">
+                                                        <tableColumn identifier="total" width="118" minWidth="40" maxWidth="1000" id="733-DO-eG8">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Total">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -963,7 +963,7 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="qpW-Xc-sEr">
-                                                                    <rect key="frame" x="120" y="1" width="116" height="25"/>
+                                                                    <rect key="frame" x="120" y="1" width="118" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RZj-fg-30X">
@@ -975,13 +975,13 @@
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                             <connections>
-                                                                                <binding destination="qpW-Xc-sEr" name="value" keyPath="objectValue.total" id="Hmd-kE-kUP"/>
+                                                                                <binding destination="qpW-Xc-sEr" name="value" keyPath="objectValue.sumOfEvents" id="1we-3H-DAW"/>
                                                                             </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="RZj-fg-30X" firstAttribute="leading" secondItem="qpW-Xc-sEr" secondAttribute="leading" constant="2" id="2hW-w2-WSb"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="RZj-fg-30X" secondAttribute="trailing" constant="3" id="4lF-Bc-CB2"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="RZj-fg-30X" secondAttribute="trailing" constant="5" id="4lF-Bc-CB2"/>
                                                                         <constraint firstItem="RZj-fg-30X" firstAttribute="centerY" secondItem="qpW-Xc-sEr" secondAttribute="centerY" id="nra-BS-d5d"/>
                                                                     </constraints>
                                                                     <connections>
@@ -990,7 +990,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                             <connections>
-                                                                <binding destination="unO-AG-2sf" name="value" keyPath="arrangedObjects.total" id="nXx-u8-PKE"/>
+                                                                <binding destination="unO-AG-2sf" name="value" keyPath="arrangedObjects.sumOfEvents" id="1mj-wA-O1M"/>
                                                             </connections>
                                                         </tableColumn>
                                                     </tableColumns>
@@ -1013,7 +1013,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <tableHeaderView key="headerView" id="z7G-N0-Tov">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableHeaderView>
                                     </scrollView>
@@ -1030,7 +1030,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="fiC-EI-sIY"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zhx-Q2-Hyw">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zhx-Q2-Hyw">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -1051,7 +1051,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="i20-O9-Tr9"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RIJ-lv-Vwa">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RIJ-lv-Vwa">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -1103,7 +1103,7 @@
                         <binding destination="XfG-lQ-9wD" name="managedObjectContext" keyPath="self.moc" id="6BG-Z6-8fi"/>
                     </connections>
                 </arrayController>
-                <arrayController mode="entity" entityName="Creditor" automaticallyPreparesContent="YES" id="unO-AG-2sf" userLabel="CreditorController">
+                <arrayController mode="entity" entityName="Creditor" fetchPredicateFormat="" automaticallyPreparesContent="YES" id="unO-AG-2sf" userLabel="CreditorController">
                     <connections>
                         <binding destination="XfG-lQ-9wD" name="managedObjectContext" keyPath="self.moc" id="ckN-AA-gQ8"/>
                     </connections>

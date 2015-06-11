@@ -10,14 +10,6 @@ import Cocoa
 
 class DebtViewController: NSViewController, EventAddedDelegate {
     
-    // Identifiers for NSTableColums's
-    private enum ColumnIdentifier: String {
-        case Date = "date"
-        case Sum = "sum"
-        case Description = "desc"
-        case Name = "name"
-    }
-    
     @IBOutlet weak var creditorTable: VibrancyTable! // id = "creditorTable"
     @IBOutlet weak var debtTable: VibrancyTable! // id = "debtTable"
     @IBOutlet weak var removeCreditorButton: NSButton!
@@ -25,13 +17,12 @@ class DebtViewController: NSViewController, EventAddedDelegate {
     @IBOutlet weak var creditorController: NSArrayController!
     @IBOutlet weak var debtController: NSArrayController!
     
-    
     lazy var moc = CoreDataStackManager.sharedManager.managedObjectContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        removeCreditorButton.enabled = false
+        creditorController.avoidsEmptySelection = false
+        creditorTable.deselectAll(self)
     }
     
     // EventAddedDelegate
@@ -39,9 +30,8 @@ class DebtViewController: NSViewController, EventAddedDelegate {
         guard isDebt == true else {
             return
         }
-        // This is called so total value which I don't store will update.
-        creditorController.rearrangeObjects()
     }
+    
     
     @IBAction func removeCreditor(sender: AnyObject) {
         
@@ -72,6 +62,8 @@ class DebtViewController: NSViewController, EventAddedDelegate {
         
         for num in selections {
             let debt = debtController.arrangedObjects[num] as! Event
+            let total: Double = debt.creditor!.sumOfEvents.doubleValue - debt.sum.doubleValue
+            debt.creditor?.sumOfEvents = total
             moc.deleteObject(debt)
         }
         
@@ -99,14 +91,21 @@ extension DebtViewController: NSTableViewDelegate {
     }
     
     func tableViewSelectionDidChange(notification: NSNotification) {
-        if notification.object?.identifier == "creditorTable" && creditorTable.selectedRow > -1 {
-            removeCreditorButton.enabled = true
-        } else {
+        
+        guard creditorController.canRemove else {
             removeCreditorButton.enabled = false
+            removeDebtButton.enabled = false
+            return
         }
         
+        if debtController.selectedObjects.count == 0 {
+            removeDebtButton.enabled = false
+        } else {
+            removeCreditorButton.enabled = true
+            removeDebtButton.enabled = true
+            
+        }
         
-
     }
 }
 

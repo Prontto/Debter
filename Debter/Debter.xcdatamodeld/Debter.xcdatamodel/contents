@@ -2,7 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8118.17" systemVersion="14D136" minimumToolsVersion="Automatic">
     <entity name="Creditor" representedClassName="Creditor" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="sumOfEvents" transient="YES" attributeType="Double" syncable="YES"/>
+        <attribute name="sumOfEvents" attributeType="Double" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="creditor" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
@@ -14,7 +14,7 @@
     </entity>
     <entity name="Ower" representedClassName=".Ower" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="sumOfEvents" transient="YES" attributeType="Double" syncable="YES"/>
+        <attribute name="sumOfEvents" attributeType="Double" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="ower" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
