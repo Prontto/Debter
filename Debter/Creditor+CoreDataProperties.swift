@@ -14,7 +14,7 @@ import CoreData
 
 extension Creditor {
 
-    @NSManaged var name: String?
+    @NSManaged var name: String
     @NSManaged var events: NSSet?
 
 }

@@ -33,7 +33,7 @@ class DebtViewController: NSViewController {
 
     }
 
-    func updateCreditorTable() {
+    private func updateCreditorTable() {
         
         let fetchResults = Helper.fetchEntities("Creditor", predicate: nil, moc: moc) as! [Creditor]
         creditors = fetchResults
@@ -45,21 +45,27 @@ class DebtViewController: NSViewController {
         creditorTable.reloadData()
     }
     
+    private func returnSelectedCreditor() -> Creditor? {
+        let num = creditorTable.selectedRow
+        guard num < creditors.count && num > -1 else {
+            return nil
+        }
+        return creditors[num]
+    }
+    
+    @IBAction func test(sender: AnyObject) {
+        if let obj = returnSelectedCreditor() {
+            print(obj.name)
+        }
+    }
 
 }
 
-// MARK: - NSTableViewDataSource & -Delegate
-extension DebtViewController: NSTableViewDataSource, NSTableViewDelegate {
+// MARK: - NSTableViewDelegate
+extension DebtViewController: NSTableViewDelegate {
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        if tableView.identifier == "creditorTable" {
-            return creditors.count
-        }
-        return 0
+    func tableView(tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        return SelectedRowView()
     }
-    
-
-    
-    
 }
 
