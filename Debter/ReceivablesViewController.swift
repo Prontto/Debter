@@ -11,12 +11,12 @@ import Cocoa
 class ReceivablesViewController: NSViewController, EventAddedDelegate {
 
     @IBOutlet weak var owerTable: VibrancyTable! // id = "owerTable"
-    @IBOutlet weak var incomeTable: VibrancyTable! // id = "incomeTale"
+    @IBOutlet weak var incomeTable: VibrancyTable! // id = "incomeTable"
     @IBOutlet weak var removeOwerButton: NSButton!
     @IBOutlet weak var removeEventButton: NSButton!
-    
     @IBOutlet weak var recsController: NSArrayController!
     @IBOutlet weak var owerController: NSArrayController!
+    
     lazy var moc = CoreDataStackManager.sharedManager.managedObjectContext
     
     override func viewDidLoad() {
@@ -25,48 +25,23 @@ class ReceivablesViewController: NSViewController, EventAddedDelegate {
     
     // EventAddedDelegate
     func newEventAdded(sender: AddNewViewController, isDebt: Bool, isReceivable: Bool) {
-        guard isReceivable == true else {
+        guard isReceivable == true else{
             return
         }
-        print("delegate toimii saatavissa")
+        owerTable.reloadData()
     }
     
     @IBAction func removeOwer(sender: AnyObject) {
-        
+        Helper.removeSelectedPerson(owerTable, controller: owerController, context: moc, button: removeOwerButton)
+        print(recsController.selectionIndexes.count)
     }
     
     @IBAction func removeEvent(sender: AnyObject) {
-        
-        let selections = incomeTable.selectedRowIndexes
-        
-        guard selections.count > 0 else {
-            return
-        }
-        
-        for item in selections {
-            let obj = recsController.arrangedObjects[item] as! Event
-            moc.deleteObject(obj)
-        }
-        
-        do {
-            try moc.save()
-        } catch {
-            print("Error while saving after removing debts.")
-        }
-        
-        let columns = owerTable.tableColumns as [NSTableColumn]
-        for index in 0..<columns.count where columns[index].identifier == "total" {
-            owerTable.reloadDataForRowIndexes(owerTable.selectedRowIndexes, columnIndexes: NSIndexSet(index: index))
-        }
-        
-        if !recsController.canSelectPrevious { recsController.selectNext(self) }
-        else { recsController.selectPrevious(self) }
-        
-        if incomeTable.selectedRowIndexes.count < 1 { removeEventButton.enabled = false }
+        Helper.removeSelectedEvents(owerTable, eventTable: incomeTable, controller: recsController, context: moc, button: removeEventButton)
     }
 }
 
-
+// MARK: NSTableViewDelegate
 extension ReceivablesViewController: NSTableViewDelegate {
  
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -93,7 +68,12 @@ extension ReceivablesViewController: NSTableViewDelegate {
         
         if recsController.canRemove { removeEventButton.enabled = true }
         else { removeEventButton.enabled = false }
+        
+        if recsController.selectionIndexes.count > 0 {
+            removeEventButton.enabled = true
+        }
+        
+        
     }
-    
     
 }

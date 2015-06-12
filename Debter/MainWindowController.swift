@@ -29,7 +29,9 @@ class MainWindowController: NSWindowController, EventAddedDelegate {
         window?.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
         
         recsVC = storyboard?.instantiateControllerWithIdentifier("RecsVC") as? ReceivablesViewController
-        debtVC = storyboard?.instantiateControllerWithIdentifier("DebtVC") as? DebtViewController
+        debtVC = storyboard!.instantiateControllerWithIdentifier("DebtVC") as? DebtViewController
+        
+        window?.contentViewController = recsVC
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
@@ -43,8 +45,16 @@ class MainWindowController: NSWindowController, EventAddedDelegate {
     
     // Keyboard shortcuts for Command + 1 & Command + 2
     override func keyDown(theEvent: NSEvent) {
-        if theEvent.keyCode == 18 && current != 0 { changeViewToRecs() }
-        if theEvent.keyCode == 19 && current != 1 { changeViewToDebt() }
+        if theEvent.keyCode == 18 && current != 0 {
+            changeViewToRecs()
+            segmentControl.setSelected(true, forSegment: 0)
+            segmentControl.setSelected(false, forSegment: 1)
+        }
+        if theEvent.keyCode == 19 && current != 1 {
+            changeViewToDebt()
+            segmentControl.setSelected(false, forSegment: 0)
+            segmentControl.setSelected(true, forSegment: 1)
+        }
     }
     
     private func changeViewToDebt() {

@@ -28,30 +28,17 @@ class DebtViewController: NSViewController, EventAddedDelegate {
         guard isDebt == true else {
             return
         }
-        let selectedRow = creditorTable.selectedRow
-        creditorTable.reloadData()
-        creditorTable.selectRowIndexes(NSIndexSet(index: selectedRow), byExtendingSelection: false)
+        if creditorTable != nil {
+            creditorTable.reloadData()
+        }
     }
     
     
     @IBAction func removeCreditor(sender: AnyObject) {
-        let selected = creditorTable.selectedRow
-        guard selected > -1 else {
-            return
-        }
-        
-        let person = creditorController.arrangedObjects[selected] as! Creditor
-        moc.deleteObject(person)
-        
-        do {
-            try moc.save()
-        } catch {
-            print("Error while saving after removing creditor")
-        }
+        Helper.removeSelectedPerson(creditorTable, controller: creditorController, context: moc, button: removeCreditorButton)
     }
     
     @IBAction func removeDebt(sender: AnyObject) {
-        
         let selections = debtTable.selectedRowIndexes
         guard selections.count > 0 else {
             return
@@ -73,10 +60,6 @@ class DebtViewController: NSViewController, EventAddedDelegate {
         for index in 0..<columns.count where columns[index].identifier == "total" {
             creditorTable.reloadDataForRowIndexes(creditorTable.selectedRowIndexes, columnIndexes: NSIndexSet(index: index))
         }
-        
-        if !debtController.canSelectPrevious { debtController.selectNext(self) }
-        else { debtController.selectPrevious(self) }
-        
         if debtTable.selectedRowIndexes.count < 1 { removeDebtButton.enabled = false }
     }
 }

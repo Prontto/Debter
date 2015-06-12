@@ -32,3 +32,6 @@
     }
     
 - Tästä alkaa taas toinen 
+
+
+Twiitti: I just put my first OS X app ever in @Github! Written in #Swift 2 (and bad english 😀). #swiftlang
