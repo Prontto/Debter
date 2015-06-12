@@ -48,6 +48,7 @@ class AddNewViewController: NSViewController {
     
         defer {
             debtDelegate?.newEventAdded(self, isDebt: true, isReceivable: false)
+            titleDelegate?.newEventAdded(self, isDebt: true, isReceivable: false)
             emptyFields()
             dismissViewController(self)
         }
@@ -84,6 +85,7 @@ class AddNewViewController: NSViewController {
         
         defer {
             recDelegate?.newEventAdded(self, isDebt: false, isReceivable: true)
+            titleDelegate?.newEventAdded(self, isDebt: false, isReceivable: true)
             emptyFields()
             dismissViewController(self)
         }

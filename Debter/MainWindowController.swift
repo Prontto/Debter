@@ -12,7 +12,7 @@ class MainWindowController: NSWindowController, EventAddedDelegate {
     
     @IBOutlet weak var segmentControl: NSSegmentedControl! // receivables = 0, debts = 1
     
-    // I have only two tabs and I think it's easier just changing windows contentviewcontroller's than TabViewController, especially when I using NSVisualEffectView.
+    // I have only two tabs and I think it's easier just changing windows contentViewController's than using TabViewController, especially when I working with NSVisualEffectView.
     private var recsVC: ReceivablesViewController?
     private var debtVC: DebtViewController?
     
@@ -24,37 +24,27 @@ class MainWindowController: NSWindowController, EventAddedDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.window?.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
+        
+        window?.title = "Debter"
+        window?.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
         
         recsVC = storyboard?.instantiateControllerWithIdentifier("RecsVC") as? ReceivablesViewController
         debtVC = storyboard?.instantiateControllerWithIdentifier("DebtVC") as? DebtViewController
     }
     
-    
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-        
         if segue.identifier == "addNewEvent" {
             let addNewVC = segue.destinationController as! AddNewViewController
             addNewVC.titleDelegate = self
             addNewVC.debtDelegate = debtVC
+            addNewVC.recDelegate = recsVC
         }
     }
     
+    // Keyboard shortcuts for Command + 1 & Command + 2
     override func keyDown(theEvent: NSEvent) {
-        if theEvent.keyCode == 18 {
-            guard current != 0 else {
-                return
-            }
-            changeViewToRecs()
-        }
-        
-        if theEvent.keyCode == 19 {
-            guard current != 1 else {
-                return
-            }
-            changeViewToDebt()
-        }
-        
+        if theEvent.keyCode == 18 && current != 0 { changeViewToRecs() }
+        if theEvent.keyCode == 19 && current != 1 { changeViewToDebt() }
     }
     
     private func changeViewToDebt() {
@@ -69,13 +59,10 @@ class MainWindowController: NSWindowController, EventAddedDelegate {
         current = 0
     }
     
-    // Delegate
+    // Delegate if I want window's title to be updated when user adds new events, so I can calculate my debts and receivables.
     func newEventAdded(sender: AddNewViewController, isDebt: Bool, isReceivable: Bool) {
-        window?.title = "Samu Tuominen"
     }
     
-    
-
     @IBAction func selectedSegmentChanged(sender: AnyObject) {
         guard current != segmentControl.selectedSegment else {
             return
@@ -84,6 +71,4 @@ class MainWindowController: NSWindowController, EventAddedDelegate {
         else if segmentControl.selectedSegment == 1 { changeViewToDebt() }
         else { print("This should never be executed!") }
     }
-    
 }
-

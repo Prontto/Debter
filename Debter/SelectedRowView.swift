@@ -8,6 +8,7 @@
 
 import Cocoa
 
+// By default, XCode gives second selection color too white, so user can't see text anymore. That's why I sublassed NSTableRowView and made both selection colors blue.
 class SelectedRowView: NSTableRowView {
 
     override func drawRect(dirtyRect: NSRect) {
@@ -18,5 +19,4 @@ class SelectedRowView: NSTableRowView {
             NSRectFill(dirtyRect)
         }
     }
-    
 }

@@ -1103,7 +1103,7 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController mode="entity" entityName="Event" avoidsEmptySelection="NO" id="p3t-qc-wtJ" userLabel="DebtController">
+                <arrayController mode="entity" entityName="Event" id="p3t-qc-wtJ" userLabel="DebtController">
                     <connections>
                         <binding destination="unO-AG-2sf" name="contentSet" keyPath="selection.events" id="5jk-4j-2mR"/>
                         <binding destination="XfG-lQ-9wD" name="managedObjectContext" keyPath="self.moc" id="6BG-Z6-8fi"/>
@@ -1167,6 +1167,9 @@
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <binding destination="e7g-r2-z8D" name="value" keyPath="objectValue.date" id="YL7-cJ-a4f"/>
+                                                                            </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <constraints>
@@ -1179,9 +1182,12 @@
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
+                                                            <connections>
+                                                                <binding destination="tJ5-Kf-etB" name="value" keyPath="arrangedObjects.date" id="xzB-fy-0eq"/>
+                                                            </connections>
                                                         </tableColumn>
                                                         <tableColumn identifier="sum" width="85" minWidth="40" maxWidth="120" id="pBy-BH-soj">
-                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Amount">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Sum">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -1205,6 +1211,9 @@
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <binding destination="Yzq-H3-cKq" name="value" keyPath="objectValue.sum" id="w6b-dY-3p1"/>
+                                                                            </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <constraints>
@@ -1217,6 +1226,9 @@
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
+                                                            <connections>
+                                                                <binding destination="tJ5-Kf-etB" name="value" keyPath="arrangedObjects.sum" id="efd-yL-r0n"/>
+                                                            </connections>
                                                         </tableColumn>
                                                         <tableColumn identifier="desc" width="232" minWidth="10" maxWidth="3.4028234663852886e+38" id="a2X-HC-Lyq">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Description">
@@ -1242,6 +1254,9 @@
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <binding destination="89i-uX-O0G" name="value" keyPath="objectValue.desc" id="vbr-kC-PV5"/>
+                                                                            </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <constraints>
@@ -1254,6 +1269,9 @@
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
+                                                            <connections>
+                                                                <binding destination="tJ5-Kf-etB" name="value" keyPath="arrangedObjects.desc" id="Jis-tj-wAH"/>
+                                                            </connections>
                                                         </tableColumn>
                                                     </tableColumns>
                                                     <connections>
@@ -1264,7 +1282,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Muq-Qq-Nuq">
-                                            <rect key="frame" x="0.0" y="1" width="0.0" height="16"/>
+                                            <rect key="frame" x="0.0" y="297" width="406" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="8aU-X7-6ot">
@@ -1306,13 +1324,16 @@
                                                                     <rect key="frame" x="1" y="1" width="116" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-Pc-gS7">
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-Pc-gS7">
                                                                             <rect key="frame" x="0.0" y="4" width="115" height="17"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Smp-YA-HgQ">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <binding destination="ib1-NW-vqG" name="value" keyPath="objectValue.name" id="akO-8X-5ix"/>
+                                                                            </connections>
                                                                         </textField>
                                                                     </subviews>
                                                                     <constraints>
@@ -1325,6 +1346,9 @@
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
+                                                            <connections>
+                                                                <binding destination="XQf-NN-ZRm" name="value" keyPath="arrangedObjects.name" id="DD8-jO-5Tk"/>
+                                                            </connections>
                                                         </tableColumn>
                                                         <tableColumn identifier="total" width="118" minWidth="40" maxWidth="1000" id="kUW-37-UX6">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Total">
@@ -1391,6 +1415,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="removeOwer:" target="gPC-t3-I7o" id="pt0-Ch-QjU"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n1v-pe-vZw">
                                         <rect key="frame" x="644" y="20" width="30" height="21"/>
@@ -1398,6 +1425,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="removeEvent:" target="gPC-t3-I7o" id="yLg-oD-W5D"/>
+                                        </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-kg-g8U">
                                         <rect key="frame" x="118" y="371" width="44" height="17"/>
@@ -1419,8 +1449,27 @@
                             </visualEffectView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="incomeTable" destination="2a5-zd-4EM" id="ibe-1W-few"/>
+                        <outlet property="owerController" destination="XQf-NN-ZRm" id="Xa7-YN-LU5"/>
+                        <outlet property="owerTable" destination="q8Q-wB-pNr" id="AbV-D6-nOx"/>
+                        <outlet property="recsController" destination="tJ5-Kf-etB" id="Mpg-fr-dbP"/>
+                        <outlet property="removeEventButton" destination="n1v-pe-vZw" id="DIr-OI-mpG"/>
+                        <outlet property="removeOwerButton" destination="gI0-16-YoC" id="Zj9-jY-DRg"/>
+                    </connections>
                 </viewController>
                 <customObject id="Xqc-Il-hM9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController mode="entity" entityName="Ower" automaticallyPreparesContent="YES" avoidsEmptySelection="NO" id="XQf-NN-ZRm" userLabel="OwersController">
+                    <connections>
+                        <binding destination="gPC-t3-I7o" name="managedObjectContext" keyPath="self.moc" id="kPL-xM-26R"/>
+                    </connections>
+                </arrayController>
+                <arrayController mode="entity" entityName="Event" id="tJ5-Kf-etB" userLabel="RecsController">
+                    <connections>
+                        <binding destination="XQf-NN-ZRm" name="contentSet" keyPath="selection.events" id="H4U-3N-7Mr"/>
+                        <binding destination="gPC-t3-I7o" name="managedObjectContext" keyPath="self.moc" id="Ryi-YA-DsJ"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="-5" y="938.5"/>
         </scene>

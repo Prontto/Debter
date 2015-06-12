@@ -21,17 +21,6 @@ class DebtViewController: NSViewController, EventAddedDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        creditorTable.deselectAll(self)
-        debtTable.deselectAll(self)
-    }
-    
-    private func updateTotalColumn() {
-        
-        let columns = creditorTable.tableColumns as [NSTableColumn]
-        for index in 0..<columns.count where columns[index].identifier == "total" {
-            //creditorTable.reloadDataForRowIndexes(creditorTable.selectedRowIndexes, columnIndexes: NSIndexSet(index: index))
-            
-        }
     }
     
     // EventAddedDelegate
@@ -46,10 +35,8 @@ class DebtViewController: NSViewController, EventAddedDelegate {
     
     
     @IBAction func removeCreditor(sender: AnyObject) {
-        
         let selected = creditorTable.selectedRow
         guard selected > -1 else {
-            print("This should never be printed, because button should be disabled now!")
             return
         }
         
@@ -61,14 +48,12 @@ class DebtViewController: NSViewController, EventAddedDelegate {
         } catch {
             print("Error while saving after removing creditor")
         }
-
     }
     
     @IBAction func removeDebt(sender: AnyObject) {
-        let selections = debtTable.selectedRowIndexes
         
+        let selections = debtTable.selectedRowIndexes
         guard selections.count > 0 else {
-            print("This should never be printed, because button should be disabled now!")
             return
         }
         
@@ -83,15 +68,17 @@ class DebtViewController: NSViewController, EventAddedDelegate {
             print("Error while saving after removing debts")
         }
         
+        // Update totalcolumn
         let columns = creditorTable.tableColumns as [NSTableColumn]
         for index in 0..<columns.count where columns[index].identifier == "total" {
             creditorTable.reloadDataForRowIndexes(creditorTable.selectedRowIndexes, columnIndexes: NSIndexSet(index: index))
         }
         
-        debtController.selectPrevious(self)
+        if !debtController.canSelectPrevious { debtController.selectNext(self) }
+        else { debtController.selectPrevious(self) }
+        
         if debtTable.selectedRowIndexes.count < 1 { removeDebtButton.enabled = false }
     }
-
 }
 
 
@@ -111,28 +98,17 @@ extension DebtViewController: NSTableViewDelegate {
         return myView
     }
     
-    // By default, XCode gives second selection color too white, so user can't see text anymore. That's why I sublassed NSTableRowView and made both selection colors blue.
     func tableView(tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return SelectedRowView()
     }
     
     
     func tableViewSelectionDidChange(notification: NSNotification) {
+        if creditorController.canRemove { removeCreditorButton.enabled = true }
+        else { removeCreditorButton.enabled = false }
         
-        guard creditorController.canRemove else {
-            removeCreditorButton.enabled = false
-            removeDebtButton.enabled = false
-            return
-        }
-        removeCreditorButton.enabled = true
-        
-        if debtController.selectedObjects.count == 0 {
-            removeDebtButton.enabled = false
-        } else {
-            removeDebtButton.enabled = true
-            
-        }
-        
+        if debtController.canRemove { removeDebtButton.enabled = true }
+        else { removeDebtButton.enabled = false }
     }
 }
 
