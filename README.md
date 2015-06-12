@@ -5,7 +5,9 @@
 - velallinen "Ower"
 
 ## TODO
-- Poista buttonit disabled ja enabled niin miten kuuluu
+    - Poista buttonit disabled ja enabled niin miten kuuluu
+    - ArrayControllereista pitää ottaa pois "avoidEmptySelection"
+
 
 ## Hyödyllistä muistettavaa
 

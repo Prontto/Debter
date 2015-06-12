@@ -23,7 +23,9 @@ class AddNewViewController: NSViewController {
     
     lazy var moc = CoreDataStackManager.sharedManager.managedObjectContext
     
-    weak var delegate: EventAddedDelegate?
+    weak var debtDelegate: EventAddedDelegate?
+    weak var recDelegate: EventAddedDelegate?
+    weak var titleDelegate: EventAddedDelegate?
     
     // For current selected radiobutton, 0 = receivable & 1 = debt
     var current = 0
@@ -45,7 +47,7 @@ class AddNewViewController: NSViewController {
         }
     
         defer {
-            delegate?.newEventAdded(self, isDebt: true, isReceivable: false)
+            debtDelegate?.newEventAdded(self, isDebt: true, isReceivable: false)
             emptyFields()
             dismissViewController(self)
         }
@@ -63,7 +65,6 @@ class AddNewViewController: NSViewController {
             newDebt.date = datePicker.dateValue
             newDebt.desc = descField.stringValue
             newDebt.creditor = person
-            person.sumOfEvents = newDebt.sum.doubleValue
         
             return
         }
@@ -73,47 +74,43 @@ class AddNewViewController: NSViewController {
         newDebt.date = datePicker.dateValue
         newDebt.desc = descField.stringValue
         newDebt.creditor = fetchResults[0]
-        
-        let total = Double(fetchResults[0].sumOfEvents) + sumField.doubleValue
-        newDebt.creditor?.sumOfEvents = total
     }
-    /*
+    
     /// Add new receivable and if someone with same name exists, this new debt will be inserted to his receivables.
     private func addReceivable() {
-        
         guard nameField.stringValue != "" && sumField.stringValue != "" else {
             return
         }
         
         defer {
-            delegate?.newEventAdded(self, isDebt: false, isReceivable: true)
+            recDelegate?.newEventAdded(self, isDebt: false, isReceivable: true)
             emptyFields()
             dismissViewController(self)
         }
         
         let predi = NSPredicate(format: "name == %@", nameField.stringValue)
-        let fetch =  Helper.fetchEntities("Velallinen", predicate: predi, moc: moc) as! [Velallinen]
+        let fetchResults =  Helper.fetchEntities("Ower", predicate: predi, moc: moc) as! [Ower]
         
-        guard fetch.count > 0 else {
+        guard fetchResults.count > 0 else {
             
-            let person = Helper.insertManagedObject("Velallinen", moc: moc) as! Velallinen
-            person.nimi = nameField.stringValue
+            let person = Helper.insertManagedObject("Ower", moc: moc) as! Ower
+            person.name = nameField.stringValue
             
-            let uusiSaatava = Helper.insertManagedObject("Saatava", moc: moc) as! Saatava
-            uusiSaatava.summa = sumField.doubleValue
-            uusiSaatava.pvm = datePicker.dateValue
-            uusiSaatava.kuvaus = descField.stringValue
-            uusiSaatava.velallinen = person
+            let newRec = Helper.insertManagedObject("Event", moc: moc) as! Event
+            newRec.sum = sumField.doubleValue
+            newRec.date = datePicker.dateValue
+            newRec.desc = descField.stringValue
+            newRec.ower = person
             
             return
         }
         
-        let uusiSaatava = Helper.insertManagedObject("Saatava", moc: moc) as! Saatava
-        uusiSaatava.summa = sumField.doubleValue
-        uusiSaatava.pvm = datePicker.dateValue
-        uusiSaatava.kuvaus = descField.stringValue
-        uusiSaatava.velallinen = fetch[0]
-    }*/
+        let newRec = Helper.insertManagedObject("Event", moc: moc) as! Event
+        newRec.sum = sumField.doubleValue
+        newRec.date = datePicker.dateValue
+        newRec.desc = descField.stringValue
+        newRec.ower = fetchResults[0]
+    }
     
     private func emptyFields() {
         let fields = [nameField, sumField, descField]
@@ -124,9 +121,9 @@ class AddNewViewController: NSViewController {
     
     // MARK: - IBActions
     @IBAction func ready(sender: AnyObject) {
-        /*if recRadioButton.state == 1 { addReceivable() }
-        else*/ if debtRadioButton.state == 1 { addDebt() }
-        /*else { fatalError("Something IS WRONG with radiobuttons!") }*/
+        if recRadioButton.state == 1 { addReceivable() }
+        else if debtRadioButton.state == 1 { addDebt() }
+        else { print("Something IS WRONG with radiobuttons!") }
     }
     
     @IBAction func cancel(sender: AnyObject) {

@@ -13,5 +13,4 @@ import CoreData
 class Ower: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-
 }

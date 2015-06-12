@@ -21,8 +21,17 @@ class DebtViewController: NSViewController, EventAddedDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        creditorController.avoidsEmptySelection = false
         creditorTable.deselectAll(self)
+        debtTable.deselectAll(self)
+    }
+    
+    private func updateTotalColumn() {
+        
+        let columns = creditorTable.tableColumns as [NSTableColumn]
+        for index in 0..<columns.count where columns[index].identifier == "total" {
+            //creditorTable.reloadDataForRowIndexes(creditorTable.selectedRowIndexes, columnIndexes: NSIndexSet(index: index))
+            
+        }
     }
     
     // EventAddedDelegate
@@ -30,6 +39,9 @@ class DebtViewController: NSViewController, EventAddedDelegate {
         guard isDebt == true else {
             return
         }
+        let selectedRow = creditorTable.selectedRow
+        creditorTable.reloadData()
+        creditorTable.selectRowIndexes(NSIndexSet(index: selectedRow), byExtendingSelection: false)
     }
     
     
@@ -60,11 +72,9 @@ class DebtViewController: NSViewController, EventAddedDelegate {
             return
         }
         
-        for num in selections {
-            let debt = debtController.arrangedObjects[num] as! Event
-            let total: Double = debt.creditor!.sumOfEvents.doubleValue - debt.sum.doubleValue
-            debt.creditor?.sumOfEvents = total
-            moc.deleteObject(debt)
+        for item in selections {
+            let obj = debtController.arrangedObjects[item] as! Event
+            moc.deleteObject(obj)
         }
         
         do {
@@ -77,6 +87,8 @@ class DebtViewController: NSViewController, EventAddedDelegate {
         for index in 0..<columns.count where columns[index].identifier == "total" {
             creditorTable.reloadDataForRowIndexes(creditorTable.selectedRowIndexes, columnIndexes: NSIndexSet(index: index))
         }
+        
+        debtController.selectPrevious(self)
         if debtTable.selectedRowIndexes.count < 1 { removeDebtButton.enabled = false }
     }
 
@@ -85,10 +97,25 @@ class DebtViewController: NSViewController, EventAddedDelegate {
 
 extension DebtViewController: NSTableViewDelegate {
     
+    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let myView = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView
+        if tableColumn?.identifier == "total" {
+            let obj = creditorController.arrangedObjects[row] as! Creditor
+            var sum = 0.0
+            for item in obj.events?.allObjects as! [Event]{
+                sum += item.sum.doubleValue
+            }
+            myView.textField?.doubleValue = sum
+
+        }
+        return myView
+    }
+    
     // By default, XCode gives second selection color too white, so user can't see text anymore. That's why I sublassed NSTableRowView and made both selection colors blue.
     func tableView(tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return SelectedRowView()
     }
+    
     
     func tableViewSelectionDidChange(notification: NSNotification) {
         
@@ -97,11 +124,11 @@ extension DebtViewController: NSTableViewDelegate {
             removeDebtButton.enabled = false
             return
         }
+        removeCreditorButton.enabled = true
         
         if debtController.selectedObjects.count == 0 {
             removeDebtButton.enabled = false
         } else {
-            removeCreditorButton.enabled = true
             removeDebtButton.enabled = true
             
         }
