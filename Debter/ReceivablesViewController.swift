@@ -33,7 +33,6 @@ class ReceivablesViewController: NSViewController, EventAddedDelegate {
     
     @IBAction func removeOwer(sender: AnyObject) {
         Helper.removeSelectedPerson(owerTable, controller: owerController, context: moc, button: removeOwerButton)
-        print(recsController.selectionIndexes.count)
     }
     
     @IBAction func removeEvent(sender: AnyObject) {
@@ -63,14 +62,18 @@ extension ReceivablesViewController: NSTableViewDelegate {
     
     func tableViewSelectionDidChange(notification: NSNotification) {
         
+        print("didthange")
+        
         if owerController.canRemove { removeOwerButton.enabled = true }
         else { removeOwerButton.enabled = false }
         
         if recsController.canRemove { removeEventButton.enabled = true }
         else { removeEventButton.enabled = false }
-        
-        if recsController.selectionIndexes.count > 0 {
-            removeEventButton.enabled = true
+
+        if notification.object!.identifier == "incomeTable" {
+            if incomeTable.selectedRowIndexes.count > 0 {
+                removeEventButton.enabled = true
+            }
         }
         
         

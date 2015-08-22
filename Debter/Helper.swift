@@ -80,6 +80,8 @@ class Helper: NSObject {
         for i in 0..<columns.count where columns[i].identifier == "total" {
             personTable.reloadDataForRowIndexes(personTable.selectedRowIndexes, columnIndexes: NSIndexSet(index: i))
         }
+        
+        print("Helper")
         if eventTable.selectedRowIndexes.count < 1 { button.enabled = false }
     }
     

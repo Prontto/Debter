@@ -92,6 +92,15 @@ extension DebtViewController: NSTableViewDelegate {
         
         if debtController.canRemove { removeDebtButton.enabled = true }
         else { removeDebtButton.enabled = false }
+        
+        if notification.object!.identifier == "debtTable" && debtTable.selectedRowIndexes.count > 0 {
+            removeDebtButton.enabled = true
+        } else {
+            removeDebtButton.enabled = false
+        }
+        
+        
+        
     }
 }
 

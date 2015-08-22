@@ -1,15 +1,17 @@
 # Yleistä
-- Blaa blaa blaa
 - saatava "receivable"
 - velka "Debts"
 - velallinen "Ower"
 
-## TODO
+## Bugit
+    - Kun poistaa henkilön, niin sen arraycontroller valitsee seuraavan jos voi ja samalla eventcontroller valitsee omasta jos voi, mutta eventin poistonappula ei tule enablediksi.
+
+### TODO
     - Poista buttonit disabled ja enabled niin miten kuuluu
     - ArrayControllereista pitää ottaa pois "avoidEmptySelection"
 
 
-## Hyödyllistä muistettavaa
+#### Hyödyllistä muistettavaa
 
 - Näin saa fetchattua entityistä pelkät propertyt:
 

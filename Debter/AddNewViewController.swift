@@ -124,8 +124,7 @@ class AddNewViewController: NSViewController {
     // MARK: - IBActions
     @IBAction func ready(sender: AnyObject) {
         if recRadioButton.state == 1 { addReceivable() }
-        else if debtRadioButton.state == 1 { addDebt() }
-        else { print("Something IS WRONG with radiobuttons!") }
+        else { addDebt() }
     }
     
     @IBAction func cancel(sender: AnyObject) {
