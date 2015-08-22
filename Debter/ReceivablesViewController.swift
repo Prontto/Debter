@@ -8,6 +8,10 @@
 
 import Cocoa
 
+@objc protocol ReceivableDelegate {
+    func recOrOwerDeleted(sender: ReceivablesViewController)
+}
+
 class ReceivablesViewController: NSViewController, EventAddedDelegate {
 
     @IBOutlet weak var owerTable: VibrancyTable! // id = "owerTable"
@@ -18,6 +22,8 @@ class ReceivablesViewController: NSViewController, EventAddedDelegate {
     @IBOutlet weak var owerController: NSArrayController!
     
     lazy var moc = CoreDataStackManager.sharedManager.managedObjectContext
+    
+    weak var delegate: ReceivableDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +39,12 @@ class ReceivablesViewController: NSViewController, EventAddedDelegate {
     
     @IBAction func removeOwer(sender: AnyObject) {
         Helper.removeSelectedPerson(owerTable, controller: owerController, context: moc, button: removeOwerButton)
+        delegate?.recOrOwerDeleted(self)
     }
     
     @IBAction func removeEvent(sender: AnyObject) {
         Helper.removeSelectedEvents(owerTable, eventTable: incomeTable, controller: recsController, context: moc, button: removeEventButton)
+        delegate?.recOrOwerDeleted(self)
     }
 }
 
@@ -60,9 +68,8 @@ extension ReceivablesViewController: NSTableViewDelegate {
         return SelectedRowView()
     }
     
+    // I think there is better way to do this...
     func tableViewSelectionDidChange(notification: NSNotification) {
-        
-        print("didthange")
         
         if owerController.canRemove { removeOwerButton.enabled = true }
         else { removeOwerButton.enabled = false }

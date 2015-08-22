@@ -8,6 +8,10 @@
 
 import Cocoa
 
+@objc protocol DebtDelegate {
+    func debtOrCreditorDeleted(sender: DebtViewController)
+}
+
 class DebtViewController: NSViewController, EventAddedDelegate {
     
     @IBOutlet weak var creditorTable: VibrancyTable! // id = "creditorTable"
@@ -18,6 +22,8 @@ class DebtViewController: NSViewController, EventAddedDelegate {
     @IBOutlet weak var debtController: NSArrayController!
     
     lazy var moc = CoreDataStackManager.sharedManager.managedObjectContext
+    
+    weak var delegate: DebtDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,7 @@ class DebtViewController: NSViewController, EventAddedDelegate {
     
     @IBAction func removeCreditor(sender: AnyObject) {
         Helper.removeSelectedPerson(creditorTable, controller: creditorController, context: moc, button: removeCreditorButton)
+        delegate?.debtOrCreditorDeleted(self)
     }
     
     @IBAction func removeDebt(sender: AnyObject) {
@@ -61,6 +68,8 @@ class DebtViewController: NSViewController, EventAddedDelegate {
             creditorTable.reloadDataForRowIndexes(creditorTable.selectedRowIndexes, columnIndexes: NSIndexSet(index: index))
         }
         if debtTable.selectedRowIndexes.count < 1 { removeDebtButton.enabled = false }
+        
+        delegate?.debtOrCreditorDeleted(self)
     }
 }
 
@@ -85,7 +94,7 @@ extension DebtViewController: NSTableViewDelegate {
         return SelectedRowView()
     }
     
-    
+    // I think there is better way to do this...
     func tableViewSelectionDidChange(notification: NSNotification) {
         if creditorController.canRemove { removeCreditorButton.enabled = true }
         else { removeCreditorButton.enabled = false }

@@ -1,13 +1,10 @@
-# Yleistä
-- saatava "receivable"
-- velka "Debts"
-- velallinen "Ower"
 
-## Bugit
+
+## Bugs
     - Kun poistaa henkilön, niin sen arraycontroller valitsee seuraavan jos voi ja samalla eventcontroller valitsee omasta jos voi, mutta eventin poistonappula ei tule enablediksi.
 
 ### TODO
-    - Poista buttonit disabled ja enabled niin miten kuuluu
+    - Maybe History entity for payed debts
     - ArrayControllereista pitää ottaa pois "avoidEmptySelection"
 
 

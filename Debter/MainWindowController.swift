@@ -8,30 +8,35 @@
 
 import Cocoa
 
-class MainWindowController: NSWindowController, EventAddedDelegate {
+class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate, ReceivableDelegate {
     
-    @IBOutlet weak var segmentControl: NSSegmentedControl! // receivables = 0, debts = 1
+    @IBOutlet weak var segmentControl: NSSegmentedControl! // their debts = 0, my debts = 1
     
     // I have only two tabs and I think it's easier just changing windows contentViewController's than using TabViewController, especially when I working with NSVisualEffectView.
     private var recsVC: ReceivablesViewController?
     private var debtVC: DebtViewController?
     
+    // ManagedObjectContext
+    lazy var moc = CoreDataStackManager.sharedManager.managedObjectContext
+    
     // For selected segment, 0 = Receivables, 1 = Debts
     private var current = 0
-    // If I choose to use these in windows title
-    private var totalDebts = 0.0
-    private var totalReceivables = 0.0
     
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        window?.title = "Debter"
         window?.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
         
         recsVC = storyboard?.instantiateControllerWithIdentifier("RecsVC") as? ReceivablesViewController
         debtVC = storyboard!.instantiateControllerWithIdentifier("DebtVC") as? DebtViewController
         
+        debtVC?.delegate = self
+        recsVC?.delegate = self
+        
         window?.contentViewController = recsVC
+        
+        calculateTotalsForWindowsTitle()
+        
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
@@ -69,8 +74,17 @@ class MainWindowController: NSWindowController, EventAddedDelegate {
         current = 0
     }
     
-    // Delegate if I want window's title to be updated when user adds new events, so I can calculate my debts and receivables.
+    // Delegates if I want window's title to be updated when user adds or remove events, so I can calculate my debts and receivables.
     func newEventAdded(sender: AddNewViewController, isDebt: Bool, isReceivable: Bool) {
+        calculateTotalsForWindowsTitle()
+    }
+    
+    func debtOrCreditorDeleted(sender: DebtViewController) {
+        calculateTotalsForWindowsTitle()
+    }
+    
+    func recOrOwerDeleted(sender: ReceivablesViewController) {
+        calculateTotalsForWindowsTitle()
     }
     
     @IBAction func selectedSegmentChanged(sender: AnyObject) {
@@ -81,4 +95,43 @@ class MainWindowController: NSWindowController, EventAddedDelegate {
         else if segmentControl.selectedSegment == 1 { changeViewToDebt() }
         else { print("This should never be executed!") }
     }
+    
+    func calculateTotalsForWindowsTitle() {
+        
+        let personsForMyDebts = Helper.fetchEntities("Creditor", predicate: nil, moc: moc)
+        let personsForTheirDebts = Helper.fetchEntities("Ower", predicate: nil, moc: moc)
+        
+        var debtsTotal = 0.0
+        var recsTotal = 0.0
+        
+        for person in personsForMyDebts as! [Creditor]{
+            let events = person.events?.allObjects as! [Event]
+            
+            for event in events {
+                debtsTotal += event.sum.doubleValue
+            }
+        }
+        
+        for person in personsForTheirDebts as! [Ower]{
+            let events = person.events?.allObjects as! [Event]
+            
+            for event in events {
+                recsTotal += event.sum.doubleValue
+            }
+        }
+        
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        
+        window?.title = "Their debts total: \(formatter.stringFromNumber(recsTotal)!)    -    My debts total: \(formatter.stringFromNumber(debtsTotal)!)"
+        
+    }
+    
 }
+
+
+
+
+
+
+
