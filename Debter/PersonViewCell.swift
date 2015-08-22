@@ -13,7 +13,7 @@ class PersonViewCell: NSView {
     @IBOutlet weak var sumField: NSTextField!
     @IBOutlet weak var nameField: NSTextField!
     
-    var nimi: String {
+    var name: String {
         get {
             return nameField.stringValue
         } set {
@@ -21,7 +21,7 @@ class PersonViewCell: NSView {
         }
     }
     
-    var summa: Double {
+    var sum: Double {
         get {
             return sumField.doubleValue
         } set {
@@ -31,8 +31,6 @@ class PersonViewCell: NSView {
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-
-        // Drawing code here.
     }
     
 }

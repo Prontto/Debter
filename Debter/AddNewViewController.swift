@@ -14,6 +14,7 @@ import Cocoa
 
 class AddNewViewController: NSViewController {
 
+    // MARK: - IBoutlets
     @IBOutlet weak var recRadioButton: NSButton!
     @IBOutlet weak var debtRadioButton: NSButton!
     @IBOutlet weak var nameField: NSTextField!
@@ -38,7 +39,7 @@ class AddNewViewController: NSViewController {
         debtRadioButton.state = 0
     }
     
-    /// Add new Debt and if someone with same name exists, this new debt will be inserted to his debts.
+    // Add new Debt and if someone with same name exists, this new debt will be inserted to his debts.
     private func addDebt() {
         
         // Check that user have leaved these fields empty.
@@ -77,7 +78,7 @@ class AddNewViewController: NSViewController {
         newDebt.creditor = fetchResults[0]
     }
     
-    /// Add new receivable and if someone with same name exists, this new debt will be inserted to his receivables.
+    // Add new receivable and if someone with same name exists, this new debt will be inserted to his receivables.
     private func addReceivable() {
         guard nameField.stringValue != "" && sumField.stringValue != "" else {
             return

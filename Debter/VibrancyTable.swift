@@ -7,7 +7,8 @@
 //
 
 import Cocoa
-/// Just overriding this method so I get that nice alternative row colors by default.
+
+// Just overriding this method so I get that nice alternative row colors by default.
 class VibrancyTable: NSTableView {
     override var allowsVibrancy: Bool { return true }
 }
