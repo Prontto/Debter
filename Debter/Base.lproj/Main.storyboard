@@ -76,6 +76,54 @@
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Debter" customModuleProvider="target"/>
+                <menuItem title="Application" id="c89-fx-dUW">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Application" id="nsd-gr-1xp">
+                        <items>
+                            <menuItem title="About Application" id="tdM-T2-TLZ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="pxP-LX-0TU"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="paU-WB-QKB"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="WBx-8k-GMj">
+                                <connections>
+                                    <action selector="showSettingsWindow:" target="Ady-hI-5gd" id="5kA-If-sW1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="pfa-MB-xGo"/>
+                            <menuItem title="Services" id="vHH-1f-omj">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Services" systemMenu="services" id="opA-Mn-FFZ"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="JVS-wQ-MUA"/>
+                            <menuItem title="Hide Application" keyEquivalent="h" id="QB8-yg-TaA">
+                                <connections>
+                                    <action selector="hide:" target="Ady-hI-5gd" id="JaL-Qa-Kbd"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="72r-Fv-5XT">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="56k-Kp-Gur"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="PJ0-DR-ero">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="PHk-aO-LjY"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="m5j-3E-6Nz"/>
+                            <menuItem title="Quit Application" keyEquivalent="q" id="kKu-4N-U8u">
+                                <connections>
+                                    <action selector="terminate:" target="Ady-hI-5gd" id="G8r-N6-KUq"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
