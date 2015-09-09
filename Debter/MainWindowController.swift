@@ -15,6 +15,8 @@ class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate
     // I have only two tabs and I think it's easier just changing windows contentViewController's than using TabViewController, especially when I working with NSVisualEffectView.
     private var recsVC: ReceivablesViewController?
     private var debtVC: DebtViewController?
+    private var settingsWindow: SettingsWindowController?
+
     
     // ManagedObjectContext
     lazy var moc = CoreDataStackManager.sharedManager.managedObjectContext
@@ -85,6 +87,14 @@ class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate
     
     func recOrOwerDeleted(sender: ReceivablesViewController) {
         calculateTotalsForWindowsTitle()
+    }
+    
+    @IBAction func showSettingsWindow(sender: AnyObject) {
+        
+        if settingsWindow == nil {
+            settingsWindow = SettingsWindowController()
+        }
+        settingsWindow?.showWindow(self)
     }
     
     @IBAction func selectedSegmentChanged(sender: AnyObject) {
