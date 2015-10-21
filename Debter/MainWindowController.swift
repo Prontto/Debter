@@ -15,9 +15,7 @@ class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate
     // I have only two tabs and I think it's easier just changing windows contentViewController's than using TabViewController, especially when I working with NSVisualEffectView.
     private var recsVC: ReceivablesViewController?
     private var debtVC: DebtViewController?
-    private var settingsWindow: SettingsWindowController?
 
-    
     // ManagedObjectContext
     lazy var moc = CoreDataStackManager.sharedManager.managedObjectContext
     
@@ -42,12 +40,13 @@ class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "addNewEvent" {
-            let addNewVC = segue.destinationController as! AddNewViewController
-            addNewVC.titleDelegate = self
-            addNewVC.debtDelegate = debtVC
-            addNewVC.recDelegate = recsVC
+        guard segue.identifier == "addNewEventSegue" else {
+            return
         }
+        let addNewVC = segue.destinationController as! AddNewViewController
+        addNewVC.titleDelegate = self
+        addNewVC.debtDelegate = debtVC
+        addNewVC.recDelegate = recsVC
     }
     
     // Keyboard shortcuts for Command + 1 & Command + 2
@@ -76,7 +75,7 @@ class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate
         current = 0
     }
     
-    // Delegates if I want window's title to be updated when user adds or remove events, so I can calculate my debts and receivables.
+    // Delegates
     func newEventAdded(sender: AddNewViewController, isDebt: Bool, isReceivable: Bool) {
         calculateTotalsForWindowsTitle()
     }
@@ -88,15 +87,7 @@ class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate
     func recOrOwerDeleted(sender: ReceivablesViewController) {
         calculateTotalsForWindowsTitle()
     }
-    
-    @IBAction func showSettingsWindow(sender: AnyObject) {
-        
-        if settingsWindow == nil {
-            settingsWindow = SettingsWindowController()
-        }
-        settingsWindow?.showWindow(self)
-    }
-    
+ 
     @IBAction func selectedSegmentChanged(sender: AnyObject) {
         guard current != segmentControl.selectedSegment else {
             return
@@ -115,7 +106,7 @@ class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate
         var recsTotal = 0.0
         
         for person in personsForMyDebts as! [Creditor]{
-            let events = person.events?.allObjects as! [Event]
+            let events = person.events.allObjects as! [Event]
             
             for event in events {
                 debtsTotal += event.sum.doubleValue
@@ -123,7 +114,7 @@ class MainWindowController: NSWindowController, EventAddedDelegate, DebtDelegate
         }
         
         for person in personsForTheirDebts as! [Ower]{
-            let events = person.events?.allObjects as! [Event]
+            let events = person.events.allObjects as! [Event]
             
             for event in events {
                 recsTotal += event.sum.doubleValue

@@ -14,8 +14,8 @@ import Cocoa
 
 class DebtViewController: NSViewController, EventAddedDelegate {
     
-    @IBOutlet weak var creditorTable: VibrancyTable! // id = "creditorTable"
-    @IBOutlet weak var debtTable: VibrancyTable! // id = "debtTable"
+    @IBOutlet weak var creditorTable: VibrancyTable!
+    @IBOutlet weak var debtTable: VibrancyTable!
     @IBOutlet weak var removeCreditorButton: NSButton!
     @IBOutlet weak var removeDebtButton: NSButton!
     @IBOutlet weak var creditorController: NSArrayController!
@@ -41,8 +41,25 @@ class DebtViewController: NSViewController, EventAddedDelegate {
     
     
     @IBAction func removeCreditor(sender: AnyObject) {
-        Helper.removeSelectedPerson(creditorTable, controller: creditorController, context: moc, button: removeCreditorButton)
+        
+        let selected = creditorController.arrangedObjects as! [Ower]
+        guard selected.count > 0 else {
+            return
+        }
+        // Only one ower can be selected.
+        moc.deleteObject(selected[0])
+        do {
+            try moc.save()
+        } catch {
+            print("Error while removing Ower")
+        }
+        
         delegate?.debtOrCreditorDeleted(self)
+        
+        if creditorController.arrangedObjects.count < 1 {
+            removeCreditorButton.enabled = false
+            removeDebtButton.enabled = false
+        }
     }
     
     @IBAction func removeDebt(sender: AnyObject) {
@@ -76,40 +93,17 @@ class DebtViewController: NSViewController, EventAddedDelegate {
 
 extension DebtViewController: NSTableViewDelegate {
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let myView = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView
-        if tableColumn?.identifier == "total" {
-            let obj = creditorController.arrangedObjects[row] as! Creditor
-            var sum = 0.0
-            for item in obj.events?.allObjects as! [Event]{
-                sum += item.sum.doubleValue
-            }
-            myView.textField?.doubleValue = sum
-
-        }
-        return myView
-    }
-    
     func tableView(tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return SelectedRowView()
     }
     
-    // I think there is better way to do this...
     func tableViewSelectionDidChange(notification: NSNotification) {
-        if creditorController.canRemove { removeCreditorButton.enabled = true }
+        if creditorTable.selectedRowIndexes.count > 0 { removeCreditorButton.enabled = true }
         else { removeCreditorButton.enabled = false }
         
-        if debtController.canRemove { removeDebtButton.enabled = true }
+        if debtTable.selectedRowIndexes.count > 0 { removeDebtButton.enabled = true }
         else { removeDebtButton.enabled = false }
-        
-        if notification.object!.identifier == "debtTable" && debtTable.selectedRowIndexes.count > 0 {
-            removeDebtButton.enabled = true
-        } else {
-            removeDebtButton.enabled = false
-        }
-        
-        
-        
+   
     }
 }
 

@@ -8,6 +8,7 @@
 
 import Cocoa
 
+/// Informs MainWindowController that new event has been added, so it knows calculate sum for windows title.
 @objc protocol EventAddedDelegate {
     func newEventAdded(sender: AddNewViewController, isDebt: Bool, isReceivable: Bool)
 }
@@ -39,10 +40,10 @@ class AddNewViewController: NSViewController {
         debtRadioButton.state = 0
     }
     
-    // Add new Debt and if someone with same name exists, this new debt will be inserted to his debts.
+    /// Add new debt and if someone with same name exists, this new debt will be inserted to his debts.
     private func addDebt() {
         
-        // Check that user have leaved these fields empty.
+        // Check that user have leaved these fields empty. Could also use NSAlert here.
         guard nameField.stringValue != "" && sumField.stringValue != "" else {
             return
         }

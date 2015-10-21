@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         do {
             try CoreDataStackManager.sharedManager.managedObjectContext.save()
         } catch {
-            print("Error while saving")
+            print("Error while saving.")
         }
     }
 }

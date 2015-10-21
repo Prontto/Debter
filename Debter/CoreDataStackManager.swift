@@ -1,17 +1,14 @@
-/*
-    Singleton-model for Core Data.
+/**
+    Singleton-controller for Core Data.
 */
 
 import Cocoa
 
 class CoreDataStackManager {
 
-    class var sharedManager: CoreDataStackManager {
-        struct Singleton {
-            static let coreDataStackManager = CoreDataStackManager()
-        }
-        return Singleton.coreDataStackManager
-    }
+    static let sharedManager = CoreDataStackManager()
+    
+    private init() { }
     
     // MARK: - Core Data stack
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -58,7 +55,7 @@ class CoreDataStackManager {
         var coordinator: NSPersistentStoreCoordinator? = nil
         if failError == nil {
             coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-            let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("CocoaAppCD.sqlite")
+            let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Debter.sqlite")
             do {
                 try coordinator!.addPersistentStoreWithType(NSXMLStoreType, configuration: nil, URL: url, options: nil)
             } catch {
